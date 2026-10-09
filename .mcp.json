@@ -8,9 +8,51 @@
       "env": {
         "NODE_TLS_REJECT_UNAUTHORIZED": "0",
         "UMBRACO_CLIENT_ID": "umbraco-back-office-mcp",
-        "UMBRACO_CLIENT_SECRET": "Mqr47EEFHjhZXymiAMSa12GyTJF4ol",
+        "UMBRACO_CLIENT_SECRET": "${UMBRACO_CLIENT_SECRET}",
         "UMBRACO_BASE_URL": "https://localhost:44390",
-        "UMBRACO_INCLUDE_TOOL_COLLECTIONS": "document,media,document-type,data-type,template"
+        "UMBRACO_INCLUDE_TOOL_COLLECTIONS": "document,media,document-type,data-type,template,member-type,member,dictionary"
+      }
+    },
+    "umbraco-forms-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@umbraco-forms/mcp-dev@18.0.0-beta.4"
+      ],
+      "env": {
+        "NODE_TLS_REJECT_UNAUTHORIZED": "0",
+        "UMBRACO_CLIENT_ID": "umbraco-back-office-mcp",
+        "UMBRACO_CLIENT_SECRET": "${UMBRACO_CLIENT_SECRET}",
+        "UMBRACO_BASE_URL": "https://localhost:44390",
+        "DISABLE_MCP_CHAINING": "true"
+      }
+    },
+    "umbraco-automate-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@umbraco-automate/mcp-dev@18.0.0-beta.1"
+      ],
+      "env": {
+        "NODE_TLS_REJECT_UNAUTHORIZED": "0",
+        "UMBRACO_CLIENT_ID": "umbraco-back-office-mcp",
+        "UMBRACO_CLIENT_SECRET": "${UMBRACO_CLIENT_SECRET}",
+        "UMBRACO_BASE_URL": "https://localhost:44390",
+        "DISABLE_MCP_CHAINING": "true"
+      }
+    },
+    "umbraco-engage-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@umbraco-engage/mcp-dev@17.0.0-beta.2"
+      ],
+      "env": {
+        "NODE_TLS_REJECT_UNAUTHORIZED": "0",
+        "UMBRACO_CLIENT_ID": "umbraco-back-office-mcp",
+        "UMBRACO_CLIENT_SECRET": "${UMBRACO_CLIENT_SECRET}",
+        "UMBRACO_BASE_URL": "https://localhost:44390",
+        "DISABLE_MCP_CHAINING": "true"
       }
     }
   }
