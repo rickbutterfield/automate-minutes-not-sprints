@@ -1,0 +1,21 @@
+{
+  "Name": "umb://dictionary-item/9d108073cb85427d80a259eeb65a1147",
+  "ItemKey": "Search.SearchButton",
+  "Translations": [
+    {
+      "Key": "9d108073-cb85-427d-80a2-59eeb65a1147",
+      "Value": "Search",
+      "LanguageIsoCode": "en-US"
+    }
+  ],
+  "Udi": "umb://dictionary-item/9d108073cb85427d80a259eeb65a1147",
+  "Dependencies": [
+    {
+      "Udi": "umb://language/en-US",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DictionaryItemArtifact",
+  "__version": "18.1.1"
+}

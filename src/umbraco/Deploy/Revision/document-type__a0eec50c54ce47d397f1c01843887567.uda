@@ -1,0 +1,34 @@
+{
+  "Name": "List Page Settings",
+  "Alias": "listPageSettings",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-pink",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "415d52cb-1d79-432e-add3-8160242b48bf",
+      "Name": "Visibility",
+      "SortOrder": 30,
+      "Type": 1,
+      "Alias": "visibility",
+      "PropertyTypes": []
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/a0eec50c54ce47d397f1c01843887567",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

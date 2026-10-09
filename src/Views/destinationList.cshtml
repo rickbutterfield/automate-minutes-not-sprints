@@ -1,0 +1,30 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.DestinationList>
+
+@using Clean.Core.Models.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    Layout = "master.cshtml";
+}
+
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                @foreach (var destination in Model.Children<ContentModels.Destination>() ?? Enumerable.Empty<ContentModels.Destination>())
+                {
+                    <div class="post-preview">
+                        <a href="@destination.Url()">
+                            <h2 class="post-title">@destination.Name</h2>
+                            <h3 class="post-subtitle">@destination.Summary</h3>
+                        </a>
+                        <p class="post-meta">@destination.Country · @destination.Region · ca. @destination.AverageFlightTimeHours h flight · best: @destination.BestMonths</p>
+                    </div>
+                    <hr class="my-4" />
+                }
+            </div>
+        </div>
+    </div>
+</main>

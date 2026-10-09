@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Trip>
+
+@using Clean.Core.Models.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    Layout = "master.cshtml";
+}
+
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p class="post-meta">
+                    @if (Model.Destination is not null)
+                    {
+                        <a href="@Model.Destination.Url()">@Model.Destination.Name</a><text> · </text>
+                    }
+                    @Model.DurationDays days · from @Model.PriceFrom.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("en-GB")) per person
+                </p>
+                @Model.Description
+                @if (!string.IsNullOrWhiteSpace(Model.DepartureDates))
+                {
+                    <h2 class="mt-4">Departure dates</h2>
+                    <ul>
+                        @foreach (var date in Model.DepartureDates.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+                        {
+                            <li>@date</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</main>

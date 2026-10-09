@@ -1,0 +1,134 @@
+{
+  "Name": "Alt text on request (agent tool)",
+  "Alias": "alt-text-on-request-agent-tool",
+  "Description": "The \u0022automations as tools\u0022 example. Started by an AI agent through the AI Agent Request trigger. The agent passes a media key as its message, and this automation writes alt text for that image using the Alt text writer agent.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/d483dd2d678f4ba685052b5c794a0eb6",
+  "Trigger": {
+    "TriggerAlias": "umbracoAI.agentTrigger",
+    "Settings": {}
+  },
+  "Steps": [
+    {
+      "Id": "f59214b4-5b7f-49a5-a9d1-7bce402b9d48",
+      "ActionAlias": "umbracoAutomate.getMedia",
+      "Name": "Get the requested image",
+      "Alias": "getRequestedMedia",
+      "ConnectionId": null,
+      "Settings": {
+        "mediaKey": "${ trigger.message }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "c6cfb144-79f3-428d-a565-c8b1f5e27c5c",
+      "ActionAlias": "umbracoAI.runAgent",
+      "Name": "Suggest alt text and caption",
+      "Alias": "suggestAltText",
+      "ConnectionId": null,
+      "Settings": {
+        "agentId": "58843e45-ff1c-4077-897d-90f7c1a23eb4",
+        "toolPermissions": "ReadOnly",
+        "attachments": "${ steps.getRequestedMedia.mediaKey }",
+        "message": "Write alt text and an SEO caption for the attached image, named \u0022${ steps.getRequestedMedia.name }\u0022. Reply with JSON only."
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 324
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "9ecc8e50-e6c4-4af8-a15e-f9187c0fef7c",
+      "ActionAlias": "umbracoAutomate.runScript",
+      "Name": "Read the agent\u0027s suggestion",
+      "Alias": "readSuggestion",
+      "ConnectionId": null,
+      "Settings": {
+        "allowFetch": false,
+        "script": "// The agent replies with JSON, sometimes wrapped in a code fence. Pull out altText and caption.\nexport default function (data) {\n    const text = String(data.steps.suggestAltText.response || \u0027\u0027);\n    const start = text.indexOf(\u0027{\u0027);\n    const end = text.lastIndexOf(\u0027}\u0027);\n    let parsed = {};\n    try {\n        parsed = JSON.parse(text.slice(start, end \u002B 1));\n    } catch (e) {\n        parsed = { altText: text.trim().slice(0, 125) };\n    }\n\n    return {\n        altText: String(parsed.altText || \u0027\u0027).slice(0, 125),\n        caption: String(parsed.caption || \u0027\u0027)\n    };\n}\n",
+        "outputSchema": "{\n    \u0022type\u0022: \u0022object\u0022,\n    \u0022properties\u0022: {\n        \u0022altText\u0022: { \u0022type\u0022: \u0022string\u0022 },\n        \u0022caption\u0022: { \u0022type\u0022: \u0022string\u0022 }\n    }\n}"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 511
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "d8f5ed81-1939-47bc-8c0c-2b04323e834f",
+      "ActionAlias": "umbracoAutomate.updateMediaProperty",
+      "Name": "Save the alt text",
+      "Alias": "saveAltText",
+      "ConnectionId": null,
+      "Settings": {
+        "mediaKey": "${ steps.getRequestedMedia.mediaKey }",
+        "propertyAlias": "altText",
+        "value": "${ steps.readSuggestion.result.altText }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 698
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "f59214b4-5b7f-49a5-a9d1-7bce402b9d48",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "f59214b4-5b7f-49a5-a9d1-7bce402b9d48",
+      "SourceHandle": null,
+      "TargetStepId": "c6cfb144-79f3-428d-a565-c8b1f5e27c5c",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "c6cfb144-79f3-428d-a565-c8b1f5e27c5c",
+      "SourceHandle": null,
+      "TargetStepId": "9ecc8e50-e6c4-4af8-a15e-f9187c0fef7c",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "9ecc8e50-e6c4-4af8-a15e-f9187c0fef7c",
+      "SourceHandle": null,
+      "TargetStepId": "d8f5ed81-1939-47bc-8c0c-2b04323e834f",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022triggerPosition\u0022:{\u0022x\u0022:-115,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/8596f221147f4883a1bd792a2272a131",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/d483dd2d678f4ba685052b5c794a0eb6"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

@@ -1,0 +1,36 @@
+{
+  "Name": "Video Row Settings",
+  "Alias": "videoRowSettings",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/1d661329af294a1b8745677e64006754",
+  "CompositionContentTypes": [
+    "umb://document-type/02180d871eea45d993a61e38f2ee0165",
+    "umb://document-type/2e1a4fd4b695403386261a45b54e04cb"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/eef34cebddf64894b1acf96c8c05d3d2",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/1d661329af294a1b8745677e64006754",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/02180d871eea45d993a61e38f2ee0165",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/2e1a4fd4b695403386261a45b54e04cb",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

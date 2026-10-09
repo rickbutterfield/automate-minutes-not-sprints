@@ -38,6 +38,8 @@ public sealed class CreateSupplierBookingAction
             settings.CompanyName,
             cancellationToken);
 
+        context.LogInfo($"Booked with Global Travel Suppliers: {bookingReference}");
+
         return Success(new CreateSupplierBookingOutput { BookingReference = bookingReference });
     }
 }

@@ -1,0 +1,75 @@
+{
+  "Name": "Article Controls",
+  "Alias": "articleControls",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-pink",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "2c962016-43e4-47ee-a890-87bd908f2a72",
+      "Name": "Article Details",
+      "SortOrder": 15,
+      "Type": 1,
+      "Alias": "articleDetails",
+      "PropertyTypes": [
+        {
+          "Key": "4e300c2a-054e-44f8-8c13-7914b4ffc165",
+          "Alias": "author",
+          "DataType": "umb://data-type/bd37253b2f0540e08d386041c9456230",
+          "ValueType": "Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent",
+          "Description": "Choose the author who wrote this article",
+          "Mandatory": true,
+          "Name": "Author",
+          "SortOrder": 25
+        },
+        {
+          "Key": "5ec7043f-1670-4917-bc0e-8c2f08b3a6e4",
+          "Alias": "articleDate",
+          "DataType": "umb://data-type/e4d66c0fb935420081f0025f7256b89a",
+          "ValueType": "System.DateTime",
+          "Description": "Enter the date for the article",
+          "Mandatory": true,
+          "Name": "Article Date",
+          "SortOrder": 20
+        },
+        {
+          "Key": "f78835a2-d60a-4736-bae8-23693d21d339",
+          "Alias": "categories",
+          "DataType": "umb://data-type/7e0ffcaf897c4aba81639132de3174d0",
+          "ValueType": "System.Collections.Generic.IEnumerable\u003CUmbraco.Cms.Core.Models.PublishedContent.IPublishedElement\u003E",
+          "Description": "Choose the categories which this article is relevant to",
+          "Name": "Categories",
+          "SortOrder": 31
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/e68abe4876464ef4abb8f1a5b24b27cc",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/7e0ffcaf897c4aba81639132de3174d0",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/bd37253b2f0540e08d386041c9456230",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/e4d66c0fb935420081f0025f7256b89a",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

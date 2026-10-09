@@ -1,0 +1,28 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.OfferList>
+
+@using Clean.Core.Models.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    Layout = "master.cshtml";
+}
+
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                @foreach (var offer in Model.Children<ContentModels.Offer>() ?? Enumerable.Empty<ContentModels.Offer>())
+                {
+                    <div class="post-preview">
+                        <a href="@offer.Url()"><h2 class="post-title">@(string.IsNullOrWhiteSpace(offer.Title) ? offer.Name : offer.Title)</h2></a>
+                        <h3 class="post-subtitle">@offer.DiscountDescription</h3>
+                        <p class="post-meta">@offer.StartDate.ToString("dd-MM-yyyy") – @offer.EndDate.ToString("dd-MM-yyyy")</p>
+                    </div>
+                    <hr class="my-4" />
+                }
+            </div>
+        </div>
+    </div>
+</main>

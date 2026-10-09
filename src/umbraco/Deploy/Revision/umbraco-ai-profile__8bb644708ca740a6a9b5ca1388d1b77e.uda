@@ -1,0 +1,24 @@
+{
+  "Name": "Wayfarer Chat",
+  "Alias": "wayfarer-chat",
+  "ModelProviderId": "anthropic",
+  "ModelModelId": "claude-haiku-5-5",
+  "ConnectionUdi": "umb://umbraco-ai-connection/71b559d98570440eacef34300725e7e6",
+  "Settings": {
+    "temperature": null,
+    "maxTokens": null,
+    "systemPromptTemplate": null,
+    "contextIds": [],
+    "guardrailIds": []
+  },
+  "CapabilitySettings": {},
+  "Tags": [],
+  "Udi": "umb://umbraco-ai-profile/8bb644708ca740a6a9b5ca1388d1b77e",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-ai-connection/71b559d98570440eacef34300725e7e6"
+    }
+  ],
+  "__type": "Umbraco.AI.Deploy,Umbraco.AI.Deploy.Artifacts.AIProfileArtifact",
+  "__version": "18.1.1"
+}

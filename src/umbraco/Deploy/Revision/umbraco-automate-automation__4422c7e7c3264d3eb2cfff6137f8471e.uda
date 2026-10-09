@@ -1,0 +1,137 @@
+{
+  "Name": "Enquiry reply: agent drafts, human decides",
+  "Alias": "enquiry-reply-agent-drafts-human-decides",
+  "Description": "Demo 2. Plan My Trip form, then the Enquiry reply drafter agent writes a reply, then Request Approval waits (no timeout, so the run shows Suspended). Approved: email the traveller. Rejected: Slack #sales \u0022Needs a human reply\u0022.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/d483dd2d678f4ba685052b5c794a0eb6",
+  "Trigger": {
+    "TriggerAlias": "umbracoForms.formSubmitted",
+    "Settings": {
+      "formIds": [
+        "ef2893bc-7136-489e-823b-918cde70fbea"
+      ]
+    }
+  },
+  "Steps": [
+    {
+      "Id": "c59ed515-cba2-474c-ac9d-3ac447ef42c6",
+      "ActionAlias": "umbracoAI.runAgent",
+      "Name": "Draft a reply",
+      "Alias": "draftReply",
+      "ConnectionId": null,
+      "Settings": {
+        "agentId": "1ebf6611-6e4c-4596-b8ec-a4171ff31234",
+        "toolPermissions": "ReadOnly",
+        "message": "New trip enquiry.\nName: ${ trigger.fields.name }\nDestination: ${ trigger.fields.destination }\nTravel month: ${ trigger.fields.travelMonth }\nTravellers: ${ trigger.fields.numberOfTravellers }\nMessage: ${ trigger.fields.message }\n\nDraft a friendly, personalised reply that suggests 2\u20133 trips from this destination."
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "8850b2ba-9b5c-4cf3-9de3-c0e2408bc405",
+      "ActionAlias": "umbracoAutomate.requestApproval",
+      "Name": "Approve the reply",
+      "Alias": "approveReply",
+      "ConnectionId": null,
+      "Settings": {
+        "prompt": "Check this draft reply to ${ trigger.fields.name } about ${ trigger.fields.destination } (${ trigger.fields.travelMonth }, ${ trigger.fields.numberOfTravellers } travellers). Approve to email it, or reject to hand it to sales.\n\n${ steps.draftReply.response }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -130,
+        "Y": 324
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "590c6203-1b13-4950-93e5-cb6ee14068d5",
+      "ActionAlias": "umbracoAutomate.sendEmail",
+      "Name": "Email the reply",
+      "Alias": "sendReply",
+      "ConnectionId": null,
+      "Settings": {
+        "to": "${ trigger.fields.email }",
+        "subject": "Your ${ trigger.fields.destination } trip ideas from Wayfarer Travel Co.",
+        "isHtml": false,
+        "body": "${ steps.draftReply.response }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -302,
+        "Y": 513
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "d8bd4292-247f-47fe-bd8e-46ba6404dddd",
+      "ActionAlias": "slack.sendMessage",
+      "Name": "Needs a human reply",
+      "Alias": "needsHumanReply",
+      "ConnectionId": null,
+      "Settings": {
+        "channel": "#rick-test-channel",
+        "message": "Needs a human reply: ${ trigger.fields.name } \u2013 ${ trigger.fields.destination }, ${ trigger.fields.travelMonth }, ${ trigger.fields.numberOfTravellers } travellers.\nTheir message: ${ trigger.fields.message }\nForms entry: ${ trigger.recordUniqueId }\nApprover comment: ${ steps.approveReply.comment }\nRejected draft:\n${ steps.draftReply.response }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": 20,
+        "Y": 513
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "c59ed515-cba2-474c-ac9d-3ac447ef42c6",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "c59ed515-cba2-474c-ac9d-3ac447ef42c6",
+      "SourceHandle": null,
+      "TargetStepId": "8850b2ba-9b5c-4cf3-9de3-c0e2408bc405",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "8850b2ba-9b5c-4cf3-9de3-c0e2408bc405",
+      "SourceHandle": "approved",
+      "TargetStepId": "590c6203-1b13-4950-93e5-cb6ee14068d5",
+      "TargetHandle": null,
+      "Outcome": "approved",
+      "Filter": null
+    },
+    {
+      "SourceStepId": "8850b2ba-9b5c-4cf3-9de3-c0e2408bc405",
+      "SourceHandle": "rejected",
+      "TargetStepId": "d8bd4292-247f-47fe-bd8e-46ba6404dddd",
+      "TargetHandle": null,
+      "Outcome": "rejected",
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022viewport\u0022:{\u0022x\u0022:613.5,\u0022y\u0022:439.95,\u0022zoom\u0022:0.85},\u0022triggerPosition\u0022:{\u0022x\u0022:-124,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/4422c7e7c3264d3eb2cfff6137f8471e",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/d483dd2d678f4ba685052b5c794a0eb6"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

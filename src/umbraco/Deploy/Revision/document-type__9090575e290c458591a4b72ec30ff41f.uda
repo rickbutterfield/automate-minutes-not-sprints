@@ -1,0 +1,95 @@
+{
+  "Name": "SEO Controls",
+  "Alias": "sEOControls",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-pink",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "18ae646a-c4d9-49ac-b5ea-6ffcbb45d94f",
+      "Name": "SEO",
+      "SortOrder": 25,
+      "Type": 1,
+      "Alias": "sEO",
+      "PropertyTypes": [
+        {
+          "Key": "465b40d7-a107-454d-b0de-c74d7fea3bd1",
+          "Alias": "metaKeywords",
+          "DataType": "umb://data-type/b6b73142b9c14bf8a16de1c23320b549",
+          "ValueType": "System.Collections.Generic.IEnumerable\u003CSystem.String\u003E",
+          "Description": "Enter the keywords for this page",
+          "Name": "Meta Keywords",
+          "SortOrder": 15
+        },
+        {
+          "Key": "5118fb9a-2251-49e7-9574-b4743fb32914",
+          "Alias": "isFollowable",
+          "DataType": "umb://data-type/fccec1e1005748cab9bf184e00758a58",
+          "ValueType": "System.Boolean",
+          "Description": "Set this to true if you want the page to be followable by robots\n\n\n\u003Cdetails\u003E\n\u003Csummary\u003E\n\u003Cuui-icon name=\u0022icon-help-alt\u0022\u003E\u003C/uui-icon\u003E More information\n\u003C/summary\u003E\n\nThis sets the *follow* aspect of the [\u0060robots\u0060 meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/robots)\n\n\u003C/details\u003E",
+          "Name": "Is Followable",
+          "SortOrder": 25
+        },
+        {
+          "Key": "85878342-59e5-4827-8447-edc34a11e87e",
+          "Alias": "metaDescription",
+          "DataType": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+          "ValueType": "System.String",
+          "Description": "Enter the meta description for this page",
+          "Name": "Meta Description",
+          "SortOrder": 10
+        },
+        {
+          "Key": "c61c9d03-0d13-4229-8f20-27cb661a32a3",
+          "Alias": "isIndexable",
+          "DataType": "umb://data-type/fccec1e1005748cab9bf184e00758a58",
+          "ValueType": "System.Boolean",
+          "Description": "Set this to true if you want this page to be indexable by robots\n\n\u003Cdetails\u003E\n\u003Csummary\u003E\n\u003Cuui-icon name=\u0022icon-help-alt\u0022\u003E\u003C/uui-icon\u003E More information\n\u003C/summary\u003E\n\nThis sets the *index* aspect of the [\u0060robots\u0060 meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/robots)\n\n\u003C/details\u003E",
+          "Name": "Is Indexable",
+          "SortOrder": 20
+        },
+        {
+          "Key": "c901ac53-4a1d-4a05-8d06-c3188e5f0668",
+          "Alias": "metaName",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "Enter the meta name for this page",
+          "Name": "Meta Name",
+          "SortOrder": 5
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/b6b73142b9c14bf8a16de1c23320b549",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/fccec1e1005748cab9bf184e00758a58",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

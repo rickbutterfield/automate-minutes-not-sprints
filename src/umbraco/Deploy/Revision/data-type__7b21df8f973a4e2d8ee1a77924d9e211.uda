@@ -1,0 +1,26 @@
+{
+  "Name": "[MediaPicker] SVG Image",
+  "EditorAlias": "Umbraco.MediaPicker3",
+  "EditorUiAlias": "Umb.PropertyEditorUi.MediaPicker",
+  "Configuration": {
+    "crops": null,
+    "enableLocalFocalPoint": false,
+    "filter": "c4b1efcf-a9d5-41c4-9621-e9d273b52a9c",
+    "ignoreUserStartNodes": false,
+    "multiple": false,
+    "startNodeId": null,
+    "validationLimit": {
+      "min": null,
+      "max": null
+    }
+  },
+  "Udi": "umb://data-type/7b21df8f973a4e2d8ee1a77924d9e211",
+  "Dependencies": [
+    {
+      "Udi": "umb://media-type/c4b1efcfa9d541c49621e9d273b52a9c",
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DataTypeArtifact",
+  "__version": "18.1.1"
+}

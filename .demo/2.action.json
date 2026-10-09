@@ -76,12 +76,7 @@
     },
     {
       "title": "14. It runs",
-      "steps": [
-        {
-          "action": "waitForInput",
-          "message": "Switch to the live backoffice run detail (or a real screen recording — a static screenshot can't be wired up here)."
-        }
-      ],
+      "steps": [],
       "notes": {
         "path": ".demo/notes/14-payoff.md"
       }

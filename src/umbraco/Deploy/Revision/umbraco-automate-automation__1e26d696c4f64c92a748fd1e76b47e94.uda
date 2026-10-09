@@ -1,0 +1,205 @@
+{
+  "Name": "Tidy up expired offers",
+  "Alias": "tidy-up-expired-offers",
+  "Description": "Scheduled example. Daily at 06:00 Europe/Copenhagen: find Offer pages, and unpublish each one whose end date has passed (ending today doesn\u0027t count). No external connections, so it\u0027s published.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/0fea4b4368cb47b49ecdbe372901a270",
+  "Trigger": {
+    "TriggerAlias": "umbracoAutomate.scheduled",
+    "Settings": {
+      "cronExpression": "0 6 * * *",
+      "timeZone": "Europe/Copenhagen",
+      "timing": "Precise"
+    }
+  },
+  "Steps": [
+    {
+      "Id": "31bb9561-4011-4382-a1b4-d64ef5e8a646",
+      "ActionAlias": "umbracoAutomate.findContent",
+      "Name": "Find published offers",
+      "Alias": "findOffers",
+      "ConnectionId": null,
+      "Settings": {
+        "name": "Offer",
+        "contentTypes": [
+          "offer"
+        ],
+        "matchMode": "Contains",
+        "includeUnpublished": false,
+        "limit": 100
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "e9e7a764-0e5f-4eb7-a435-b3ce27b62414",
+      "ActionAlias": "umbracoAutomate.forEach",
+      "Name": "For each offer",
+      "Alias": "forEachOffer",
+      "ConnectionId": null,
+      "Settings": {
+        "collection": "${ steps.findOffers.matches }",
+        "runParallel": false
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 324
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "812ff06b-2574-44cb-9067-975ac20d9f2f",
+      "ActionAlias": "umbracoAutomate.getContentProperty",
+      "Name": "Get the offer\u0027s end date",
+      "Alias": "getEndDate",
+      "ConnectionId": null,
+      "Settings": {
+        "contentKey": "${ loop.item.contentKey }",
+        "propertyAlias": "endDate"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -197,
+        "Y": 540
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "197928c3-76ac-4f1f-8e87-5a7e2b6a745c",
+      "ActionAlias": "umbracoAutomate.runScript",
+      "Name": "Has the end date passed",
+      "Alias": "checkExpired",
+      "ConnectionId": null,
+      "Settings": {
+        "allowFetch": false,
+        "script": "// An offer is expired once its end date is before today in Copenhagen.\n// An offer that ends today stays live until tomorrow\u0027s run.\nexport default function (data) {\n    const value = data.steps.getEndDate.value;\n    if (!value) {\n        return { isExpired: false, endDate: \u0027\u0027 };\n    }\n\n    const endDate = String(value).slice(0, 10);\n    let today;\n    try {\n        today = new Intl.DateTimeFormat(\u0027sv-SE\u0027, { timeZone: \u0027Europe/Copenhagen\u0027 }).format(new Date());\n    } catch (e) {\n        today = new Date().toISOString().slice(0, 10);\n    }\n\n    return { isExpired: endDate \u003C today, endDate: endDate };\n}\n",
+        "outputSchema": "{\n    \u0022type\u0022: \u0022object\u0022,\n    \u0022properties\u0022: {\n        \u0022isExpired\u0022: { \u0022type\u0022: \u0022boolean\u0022 },\n        \u0022endDate\u0022: { \u0022type\u0022: \u0022string\u0022, \u0022description\u0022: \u0022YYYY-MM-DD\u0022 }\n    }\n}"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -197,
+        "Y": 727
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "38cd05e2-8be1-4ae6-9963-3adcb6ddc145",
+      "ActionAlias": "umbracoAutomate.if",
+      "Name": "Is it expired",
+      "Alias": "isExpired",
+      "ConnectionId": null,
+      "Settings": {
+        "conditions": {
+          "Groups": [
+            {
+              "Conditions": [
+                {
+                  "LeftOperand": "${ steps.checkExpired.result.isExpired }",
+                  "Operator": "Equals",
+                  "RightOperand": "true"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -167,
+        "Y": 914
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "93bfa3cb-91ce-4fdc-86a6-2c06b02d58ab",
+      "ActionAlias": "umbracoAutomate.unpublishContent",
+      "Name": "Unpublish the offer",
+      "Alias": "unpublishOffer",
+      "ConnectionId": null,
+      "Settings": {
+        "contentKey": "${ loop.item.contentKey }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -242,
+        "Y": 1103
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "31bb9561-4011-4382-a1b4-d64ef5e8a646",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "31bb9561-4011-4382-a1b4-d64ef5e8a646",
+      "SourceHandle": null,
+      "TargetStepId": "e9e7a764-0e5f-4eb7-a435-b3ce27b62414",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "e9e7a764-0e5f-4eb7-a435-b3ce27b62414",
+      "SourceHandle": "body",
+      "TargetStepId": "812ff06b-2574-44cb-9067-975ac20d9f2f",
+      "TargetHandle": null,
+      "Outcome": "body",
+      "Filter": null
+    },
+    {
+      "SourceStepId": "812ff06b-2574-44cb-9067-975ac20d9f2f",
+      "SourceHandle": null,
+      "TargetStepId": "197928c3-76ac-4f1f-8e87-5a7e2b6a745c",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "197928c3-76ac-4f1f-8e87-5a7e2b6a745c",
+      "SourceHandle": null,
+      "TargetStepId": "38cd05e2-8be1-4ae6-9963-3adcb6ddc145",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "38cd05e2-8be1-4ae6-9963-3adcb6ddc145",
+      "SourceHandle": "true",
+      "TargetStepId": "93bfa3cb-91ce-4fdc-86a6-2c06b02d58ab",
+      "TargetHandle": null,
+      "Outcome": "true",
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022triggerPosition\u0022:{\u0022x\u0022:-130,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/1e26d696c4f64c92a748fd1e76b47e94",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/0fea4b4368cb47b49ecdbe372901a270"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

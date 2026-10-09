@@ -1,0 +1,110 @@
+{
+  "Name": "Member signed up: Welcome, notify, reward",
+  "Alias": "member-signed-up-welcome-notify-reward",
+  "Description": "Demo 1 finished reference copy and live-demo fallback. Supports the \u0022One automation, end to end\u0022 and \u0022Minutes, not sprints\u0022 slides. Join the Travel Club form, then discount code, welcome email and #sales Slack message. Step 2 is a placeholder until a Commerce store exists.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/aec2d574f2534139b43a49a10a6ccd4d",
+  "Trigger": {
+    "TriggerAlias": "umbracoForms.formSubmitted",
+    "Settings": {
+      "formIds": [
+        "e4a2e4e8-dd4f-49bd-ba9a-68e6e6c5eebd"
+      ]
+    }
+  },
+  "Steps": [
+    {
+      "Id": "005db2ce-65a2-46fd-9811-a335a3f86bb0",
+      "ActionAlias": "umbracoAutomate.setVariable",
+      "Name": "Discount code",
+      "Alias": "generateDiscountCode",
+      "ConnectionId": null,
+      "Settings": {
+        "name": "discountCode",
+        "value": "TRAVELCLUB-PLACEHOLDER"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "347aeedd-2d09-40a9-8fce-7394d002377b",
+      "ActionAlias": "umbracoAutomate.sendEmail",
+      "Name": "Send welcome email",
+      "Alias": "sendWelcomeEmail",
+      "ConnectionId": null,
+      "Settings": {
+        "to": "${ trigger.fields.email }",
+        "subject": "Welcome to the Wayfarer Travel Club, ${ trigger.fields.firstName }",
+        "isHtml": true,
+        "body": "\u003Cp\u003EHi ${ trigger.fields.firstName },\u003C/p\u003E\u003Cp\u003EWelcome to the Wayfarer Travel Club! Here is your welcome discount code:\u003C/p\u003E\u003Cp\u003E\u003Cstrong\u003E${ steps.generateDiscountCode.value }\u003C/strong\u003E\u003C/p\u003E\u003Cp\u003EHappy travels,\u003Cbr\u003EWayfarer Travel Co.\u003C/p\u003E"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 511
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "e6680b73-6eb4-4c13-8a43-52f24a410fe7",
+      "ActionAlias": "slack.sendMessage",
+      "Name": "Notify #sales",
+      "Alias": "notifySales",
+      "ConnectionId": null,
+      "Settings": {
+        "channel": "#rick-test-channel",
+        "message": "New Travel Club member: ${ trigger.fields.firstName } \u2013 prefers ${ trigger.fields.preferredDestination } \u2013 code ${ steps.generateDiscountCode.value }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 324
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "005db2ce-65a2-46fd-9811-a335a3f86bb0",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "005db2ce-65a2-46fd-9811-a335a3f86bb0",
+      "SourceHandle": null,
+      "TargetStepId": "e6680b73-6eb4-4c13-8a43-52f24a410fe7",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "e6680b73-6eb4-4c13-8a43-52f24a410fe7",
+      "SourceHandle": null,
+      "TargetStepId": "347aeedd-2d09-40a9-8fce-7394d002377b",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022triggerPosition\u0022:{\u0022x\u0022:-124,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/b07eb2a9c7104ad1bc79ac13d2b4916a",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/aec2d574f2534139b43a49a10a6ccd4d"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

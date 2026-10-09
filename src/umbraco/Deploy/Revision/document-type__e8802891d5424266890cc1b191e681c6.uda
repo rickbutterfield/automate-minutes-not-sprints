@@ -1,0 +1,42 @@
+{
+  "Name": "Form Row",
+  "Alias": "formRow",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-document",
+  "Thumbnail": "folder.png",
+  "Description": "Renders an Umbraco Forms form in a Clean block list (added for the Wayfarer demo).",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "0a40d71f-38d1-4b32-8b99-1551ff300edd",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "6f9acc53-cee5-4bcb-948b-6bce026560fa",
+          "Alias": "form",
+          "DataType": "umb://data-type/3e1ad582835a41a5987cac4a24343cec",
+          "ValueType": "System.Nullable\u003CSystem.Guid\u003E",
+          "Mandatory": true,
+          "Name": "Form"
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/e8802891d5424266890cc1b191e681c6",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/3e1ad582835a41a5987cac4a24343cec",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

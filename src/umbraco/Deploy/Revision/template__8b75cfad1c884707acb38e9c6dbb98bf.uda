@@ -1,0 +1,21 @@
+{
+  "Name": "Destination List",
+  "Alias": "destinationList",
+  "File": "umb://template-file/destinationList.cshtml",
+  "Master": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+  "Udi": "umb://template/8b75cfad1c884707acb38e9c6dbb98bf",
+  "Dependencies": [
+    {
+      "Udi": "umb://template-file/destinationList.cshtml",
+      "Ordering": true,
+      "Mode": "Exist"
+    },
+    {
+      "Udi": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.TemplateArtifact",
+  "__version": "18.1.1"
+}

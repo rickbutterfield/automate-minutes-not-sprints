@@ -1,0 +1,20 @@
+@inherits UmbracoViewPage<BlockListItem>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@{
+    // Renders an Umbraco Forms form picked on a "Form Row" block (added for the Wayfarer demo pages).
+    if (Model.Settings?.Value<bool>("hide") ?? false) { return; }
+
+    var formKey = Model.Content.Value<Guid?>("form");
+    if (formKey is null) { return; }
+
+    var spacingClasses = "";
+    if (Model.Settings is ISpacingProperties spacing)
+    {
+        spacingClasses = Clean.Core.Helpers.SpacingHelper.GetSpacingClasses(spacing.PaddingTop, spacing.PaddingBottom, spacing.PaddingLeft, spacing.PaddingRight, spacing.MarginTop, spacing.MarginBottom, spacing.MarginLeft, spacing.MarginRight);
+    }
+}
+
+<div class="form-row @(spacingClasses)">
+    @await Component.InvokeAsync("RenderForm", new { formId = formKey.Value, theme = "default", includeScripts = true })
+</div>

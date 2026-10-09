@@ -20,12 +20,7 @@
     },
     {
       "title": "16. If available, book and notify sales at the same time",
-      "steps": [
-        {
-          "action": "waitForInput",
-          "message": "Switch to the live automation canvas — the If/Parallel branch (no screenshot fallback available)."
-        }
-      ],
+      "steps": [],
       "notes": {
         "path": ".demo/notes/16-branch.md"
       }

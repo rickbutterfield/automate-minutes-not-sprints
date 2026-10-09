@@ -1,0 +1,88 @@
+{
+  "Name": "High-intent visitor: tell sales",
+  "Alias": "high-intent-visitor-tell-sales",
+  "Description": "Engage example, built with what Umbraco.Engage.Automate 18.0.0 offers. When a visitor is explicitly assigned the Nordic Explorer persona, post to #sales. Outputs are pseudonymous IDs only: Engage has no goal-reached or behavioural-persona trigger yet, and no page-history output.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/93b33d2593a8452cacf2d23c5882c25e",
+  "Trigger": {
+    "TriggerAlias": "umbracoEngage.personaExplicitScored",
+    "Settings": {}
+  },
+  "Steps": [
+    {
+      "Id": "87cf1a99-f855-469c-8683-4259c601c176",
+      "ActionAlias": "umbracoAutomate.if",
+      "Name": "Is it Nordic Explorer",
+      "Alias": "isNordicExplorer",
+      "ConnectionId": null,
+      "Settings": {
+        "conditions": {
+          "Groups": [
+            {
+              "Conditions": [
+                {
+                  "LeftOperand": "${ trigger.personaId }",
+                  "Operator": "Equals",
+                  "RightOperand": "1"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -136,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "010f5dad-8c78-4462-aae4-54bb1ac631c7",
+      "ActionAlias": "slack.sendMessage",
+      "Name": "Tell #sales",
+      "Alias": "tellSales",
+      "ConnectionId": null,
+      "Settings": {
+        "channel": "#rick-test-channel",
+        "message": "High-intent visitor: Nordic Explorer persona assigned (persona ${ trigger.personaId }, group ${ trigger.groupId }, Engage visitor ${ trigger.visitorId }). Open the profile in Engage to see what they viewed."
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -195,
+        "Y": 326
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "87cf1a99-f855-469c-8683-4259c601c176",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "87cf1a99-f855-469c-8683-4259c601c176",
+      "SourceHandle": "true",
+      "TargetStepId": "010f5dad-8c78-4462-aae4-54bb1ac631c7",
+      "TargetHandle": null,
+      "Outcome": "true",
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022viewport\u0022:{\u0022x\u0022:636.45,\u0022y\u0022:519.425,\u0022zoom\u0022:0.85},\u0022triggerPosition\u0022:{\u0022x\u0022:-141,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/5c5cd9599eee42e9a6d2521791b89a24",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/93b33d2593a8452cacf2d23c5882c25e"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

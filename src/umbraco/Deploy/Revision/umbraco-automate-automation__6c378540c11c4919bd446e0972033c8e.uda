@@ -1,0 +1,211 @@
+{
+  "Name": "New media: alt text and tags",
+  "Alias": "new-media-alt-text-and-tags",
+  "Description": "AI example. When an image is saved in \u0022Uploads (unsorted)\u0022 and has no alt text, the Alt text writer agent suggests alt text and an SEO caption. Alt text is written back to the image. The caption is logged, because the Image media type has no caption property.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/d483dd2d678f4ba685052b5c794a0eb6",
+  "Trigger": {
+    "TriggerAlias": "umbracoAutomate.mediaSaved",
+    "Settings": {
+      "onAutomationOriginatedEvent": "SkipAlways"
+    }
+  },
+  "Steps": [
+    {
+      "Id": "7cc30610-d6c8-4872-a284-1ae8c234ba34",
+      "ActionAlias": "umbracoAutomate.getMedia",
+      "Name": "Get the media item",
+      "Alias": "getUpload",
+      "ConnectionId": null,
+      "Settings": {
+        "mediaKey": "${ trigger.mediaKey }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "d0ee085b-9375-47f2-a873-76895c7415fc",
+      "ActionAlias": "umbracoAutomate.if",
+      "Name": "Unsorted image without alt text",
+      "Alias": "needsAltText",
+      "ConnectionId": null,
+      "Settings": {
+        "conditions": {
+          "Groups": [
+            {
+              "Conditions": [
+                {
+                  "LeftOperand": "${ steps.getUpload.parentKey }",
+                  "Operator": "Equals",
+                  "RightOperand": "ee4445eb-825a-4657-b1f9-402e46e54d15"
+                },
+                {
+                  "LeftOperand": "${ trigger.mediaTypeAlias }",
+                  "Operator": "Equals",
+                  "RightOperand": "Image"
+                },
+                {
+                  "LeftOperand": "${ steps.getUpload.properties.altText }",
+                  "Operator": "IsEmpty",
+                  "RightOperand": ""
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 324
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "1ab5dc75-f579-46e1-a902-0d3c37fcfa81",
+      "ActionAlias": "umbracoAI.runAgent",
+      "Name": "Suggest alt text and caption",
+      "Alias": "suggestAltText",
+      "ConnectionId": null,
+      "Settings": {
+        "agentId": "58843e45-ff1c-4077-897d-90f7c1a23eb4",
+        "toolPermissions": "ReadOnly",
+        "attachments": "${ trigger.mediaKey }",
+        "message": "Write alt text and an SEO caption for the attached image, named \u0022${ trigger.mediaName }\u0022. Reply with JSON only."
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -197,
+        "Y": 513
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "17dda5e2-f71a-4e73-8f8d-cadb56b95097",
+      "ActionAlias": "umbracoAutomate.runScript",
+      "Name": "Read the agent\u0027s suggestion",
+      "Alias": "readSuggestion",
+      "ConnectionId": null,
+      "Settings": {
+        "allowFetch": false,
+        "script": "// The agent replies with JSON, sometimes wrapped in a code fence. Pull out altText and caption.\nexport default function (data) {\n    const text = String(data.steps.suggestAltText.response || \u0027\u0027);\n    const start = text.indexOf(\u0027{\u0027);\n    const end = text.lastIndexOf(\u0027}\u0027);\n    let parsed = {};\n    try {\n        parsed = JSON.parse(text.slice(start, end \u002B 1));\n    } catch (e) {\n        parsed = { altText: text.trim().slice(0, 125) };\n    }\n\n    return {\n        altText: String(parsed.altText || \u0027\u0027).slice(0, 125),\n        caption: String(parsed.caption || \u0027\u0027)\n    };\n}\n",
+        "outputSchema": "{\n    \u0022type\u0022: \u0022object\u0022,\n    \u0022properties\u0022: {\n        \u0022altText\u0022: { \u0022type\u0022: \u0022string\u0022 },\n        \u0022caption\u0022: { \u0022type\u0022: \u0022string\u0022 }\n    }\n}"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -197,
+        "Y": 700
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "b9d32c4b-da91-4bc6-8419-63032de0b3a9",
+      "ActionAlias": "umbracoAutomate.updateMediaProperty",
+      "Name": "Save the alt text",
+      "Alias": "saveAltText",
+      "ConnectionId": null,
+      "Settings": {
+        "mediaKey": "${ trigger.mediaKey }",
+        "propertyAlias": "altText",
+        "value": "${ steps.readSuggestion.result.altText }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -197,
+        "Y": 887
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "1719d36f-d6cb-4057-8d99-9f6d006d3ef6",
+      "ActionAlias": "umbracoAutomate.logMessage",
+      "Name": "Log the SEO caption",
+      "Alias": "logCaption",
+      "ConnectionId": null,
+      "Settings": {
+        "logLevel": "Information",
+        "message": "Suggested SEO caption for ${ trigger.mediaName }: ${ steps.readSuggestion.result.caption }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -197,
+        "Y": 1074
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "7cc30610-d6c8-4872-a284-1ae8c234ba34",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "7cc30610-d6c8-4872-a284-1ae8c234ba34",
+      "SourceHandle": null,
+      "TargetStepId": "d0ee085b-9375-47f2-a873-76895c7415fc",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "d0ee085b-9375-47f2-a873-76895c7415fc",
+      "SourceHandle": "true",
+      "TargetStepId": "1ab5dc75-f579-46e1-a902-0d3c37fcfa81",
+      "TargetHandle": null,
+      "Outcome": "true",
+      "Filter": null
+    },
+    {
+      "SourceStepId": "1ab5dc75-f579-46e1-a902-0d3c37fcfa81",
+      "SourceHandle": null,
+      "TargetStepId": "17dda5e2-f71a-4e73-8f8d-cadb56b95097",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "17dda5e2-f71a-4e73-8f8d-cadb56b95097",
+      "SourceHandle": null,
+      "TargetStepId": "b9d32c4b-da91-4bc6-8419-63032de0b3a9",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "b9d32c4b-da91-4bc6-8419-63032de0b3a9",
+      "SourceHandle": null,
+      "TargetStepId": "1719d36f-d6cb-4057-8d99-9f6d006d3ef6",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022triggerPosition\u0022:{\u0022x\u0022:-114,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/6c378540c11c4919bd446e0972033c8e",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/d483dd2d678f4ba685052b5c794a0eb6"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

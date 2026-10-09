@@ -1,0 +1,21 @@
+{
+  "Name": "umb://dictionary-item/c0e753839b594272be1b7bd0b29078c0",
+  "ItemKey": "Navigation.SiteName",
+  "Translations": [
+    {
+      "Key": "c0e75383-9b59-4272-be1b-7bd0b29078c0",
+      "Value": "Wayfarer Travel Co.",
+      "LanguageIsoCode": "en-US"
+    }
+  ],
+  "Udi": "umb://dictionary-item/c0e753839b594272be1b7bd0b29078c0",
+  "Dependencies": [
+    {
+      "Udi": "umb://language/en-US",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DictionaryItemArtifact",
+  "__version": "18.1.1"
+}

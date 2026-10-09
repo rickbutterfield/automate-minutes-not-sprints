@@ -1,0 +1,21 @@
+{
+  "Name": "Trip",
+  "Alias": "trip",
+  "File": "umb://template-file/trip.cshtml",
+  "Master": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+  "Udi": "umb://template/2bb6cd683c5c428ba303603dafbf3bda",
+  "Dependencies": [
+    {
+      "Udi": "umb://template-file/trip.cshtml",
+      "Ordering": true,
+      "Mode": "Exist"
+    },
+    {
+      "Udi": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.TemplateArtifact",
+  "__version": "18.1.1"
+}

@@ -1,0 +1,57 @@
+{
+  "Name": "Booking system webhook",
+  "Alias": "booking-system-webhook",
+  "Description": "Webhook example (optional). Accepts a POST from the booking system and writes a one-line summary to the log. No external connection, so it\u0027s published.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/0fea4b4368cb47b49ecdbe372901a270",
+  "Trigger": {
+    "TriggerAlias": "umbracoAutomate.webhook",
+    "Settings": {
+      "allowedMethod": "POST",
+      "authenticator": {
+        "alias": "plain-secret",
+        "settings": {}
+      },
+      "testRequestBody": "{\n    \u0022bookingReference\u0022: \u0022WTC-TEST-0001\u0022,\n    \u0022destination\u0022: \u0022Iceland \u2013 South Coast\u0022,\n    \u0022travellers\u0022: 2,\n    \u0022departureDate\u0022: \u002206-06-2027\u0022\n}"
+    }
+  },
+  "Steps": [
+    {
+      "Id": "aeff887c-83d8-49bb-9a51-1e64148b0cf1",
+      "ActionAlias": "umbracoAutomate.logMessage",
+      "Name": "Log booking summary",
+      "Alias": "logBookingSummary",
+      "ConnectionId": null,
+      "Settings": {
+        "logLevel": "Information",
+        "message": "Booking system update: ${ trigger.body.bookingReference } \u2013 ${ trigger.body.destination } \u2013 ${ trigger.body.travellers } travellers \u2013 departs ${ trigger.body.departureDate }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "aeff887c-83d8-49bb-9a51-1e64148b0cf1",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022triggerPosition\u0022:{\u0022x\u0022:-111,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/54e389576af245aa8d54086040794fb4",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/0fea4b4368cb47b49ecdbe372901a270"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

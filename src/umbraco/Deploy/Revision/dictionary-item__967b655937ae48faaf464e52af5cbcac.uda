@@ -1,0 +1,21 @@
+{
+  "Name": "umb://dictionary-item/967b655937ae48faaf464e52af5cbcac",
+  "ItemKey": "ContactForm.Email",
+  "Translations": [
+    {
+      "Key": "967b6559-37ae-48fa-af46-4e52af5cbcac",
+      "Value": "Email Address",
+      "LanguageIsoCode": "en-US"
+    }
+  ],
+  "Udi": "umb://dictionary-item/967b655937ae48faaf464e52af5cbcac",
+  "Dependencies": [
+    {
+      "Udi": "umb://language/en-US",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DictionaryItemArtifact",
+  "__version": "18.1.1"
+}

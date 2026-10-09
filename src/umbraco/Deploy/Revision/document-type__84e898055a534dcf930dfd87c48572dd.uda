@@ -1,0 +1,31 @@
+{
+  "Name": "Icon Link Row Settings",
+  "Alias": "iconLinkRowSettings",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/1d661329af294a1b8745677e64006754",
+  "CompositionContentTypes": [
+    "umb://document-type/02180d871eea45d993a61e38f2ee0165"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/84e898055a534dcf930dfd87c48572dd",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/1d661329af294a1b8745677e64006754",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/02180d871eea45d993a61e38f2ee0165",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

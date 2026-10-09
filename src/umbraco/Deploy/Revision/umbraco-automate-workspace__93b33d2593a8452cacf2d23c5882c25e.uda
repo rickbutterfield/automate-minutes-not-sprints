@@ -1,0 +1,26 @@
+{
+  "Name": "Marketing",
+  "Alias": "marketing",
+  "ServiceAccountKey": "b272e18e-beeb-40ab-ba2c-0d8085e61cf3",
+  "UserGroups": [
+    "e5e7f6c8-7f9c-4b5b-8d5d-9e1e5a4f7e4d",
+    "44dc260e-b4d4-4dd9-9081-eec5598f1641"
+  ],
+  "AllowedConnectionUdis": [
+    "umb://umbraco-automate-connection/43f9fb81c40440a6bce7d28dd247abec"
+  ],
+  "Udi": "umb://umbraco-automate-workspace/93b33d2593a8452cacf2d23c5882c25e",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-connection/43f9fb81c40440a6bce7d28dd247abec"
+    },
+    {
+      "Udi": "umb://user-group/e5e7f6c87f9c4b5b8d5d9e1e5a4f7e4d"
+    },
+    {
+      "Udi": "umb://user-group/44dc260eb4d44dd99081eec5598f1641"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateWorkspaceArtifact",
+  "__version": "18.1.1"
+}

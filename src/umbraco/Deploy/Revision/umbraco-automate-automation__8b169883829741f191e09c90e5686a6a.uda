@@ -1,0 +1,138 @@
+{
+  "Name": "Member signed up (with Run Script)",
+  "Alias": "member-signed-up-with-run-script",
+  "Description": "Supports the \u0022and when you do need a bit of logic\u0022 moment. A copy of \u0022Member signed up: Welcome, notify, reward\u0022 with a Run Script step that title-cases the first name and calculates an offer expiry 30 days out (DD-MM-YYYY). AllowFetch is off.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/aec2d574f2534139b43a49a10a6ccd4d",
+  "Trigger": {
+    "TriggerAlias": "umbracoForms.formSubmitted",
+    "Settings": {
+      "formIds": [
+        "e4a2e4e8-dd4f-49bd-ba9a-68e6e6c5eebd"
+      ]
+    }
+  },
+  "Steps": [
+    {
+      "Id": "c0f96427-069a-49cd-93ae-1b9c5fe2b59a",
+      "ActionAlias": "umbracoAutomate.runScript",
+      "Name": "Tidy name and work out offer expiry",
+      "Alias": "tidyMemberDetails",
+      "ConnectionId": null,
+      "Settings": {
+        "allowFetch": false,
+        "script": "// Title-case the first name and work out an offer expiry 30 days from now (DD-MM-YYYY).\nexport default function (data) {\n    const raw = String(data.trigger.fields.firstName || \u0027\u0027).trim().toLowerCase();\n    const firstName = raw\n        .split(\u0027 \u0027)\n        .map(word =\u003E word.split(\u0027-\u0027).map(part =\u003E part.charAt(0).toUpperCase() \u002B part.slice(1)).join(\u0027-\u0027))\n        .join(\u0027 \u0027);\n\n    const expiry = new Date(Date.now() \u002B 30 * 24 * 60 * 60 * 1000);\n    const pad = n =\u003E String(n).padStart(2, \u00270\u0027);\n    const offerExpiry = pad(expiry.getUTCDate()) \u002B \u0027-\u0027 \u002B pad(expiry.getUTCMonth() \u002B 1) \u002B \u0027-\u0027 \u002B expiry.getUTCFullYear();\n\n    return { firstName: firstName, offerExpiry: offerExpiry };\n}\n",
+        "outputSchema": "{\n    \u0022type\u0022: \u0022object\u0022,\n    \u0022properties\u0022: {\n        \u0022firstName\u0022: { \u0022type\u0022: \u0022string\u0022 },\n        \u0022offerExpiry\u0022: { \u0022type\u0022: \u0022string\u0022, \u0022description\u0022: \u0022DD-MM-YYYY\u0022 }\n    }\n}"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "eb690f23-0108-409f-a246-0af9d0ff33dc",
+      "ActionAlias": "umbracoAutomate.setVariable",
+      "Name": "PLACEHOLDER \u2013 Generate discount code (needs Commerce store)",
+      "Alias": "generateDiscountCode",
+      "ConnectionId": null,
+      "Settings": {
+        "name": "discountCode",
+        "value": "TRAVELCLUB-PLACEHOLDER"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 324
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "f815d9f0-f1b8-4cfc-b9f5-c4247fbb6e1a",
+      "ActionAlias": "umbracoAutomate.sendEmail",
+      "Name": "Send welcome email",
+      "Alias": "sendWelcomeEmail",
+      "ConnectionId": null,
+      "Settings": {
+        "to": "${ trigger.fields.email }",
+        "subject": "Welcome to the Wayfarer Travel Club, ${ steps.tidyMemberDetails.result.firstName }",
+        "isHtml": true,
+        "body": "\u003Cp\u003EHi ${ steps.tidyMemberDetails.result.firstName },\u003C/p\u003E\u003Cp\u003EWelcome to the Wayfarer Travel Club! Here is your welcome discount code:\u003C/p\u003E\u003Cp\u003E\u003Cstrong\u003E${ steps.generateDiscountCode.value }\u003C/strong\u003E\u003C/p\u003E\u003Cp\u003EUse it before ${ steps.tidyMemberDetails.result.offerExpiry }.\u003C/p\u003E\u003Cp\u003EHappy travels,\u003Cbr\u003EWayfarer Travel Co.\u003C/p\u003E"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 698
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "a3cc6471-ca45-4ac2-a39f-1f073f7dc713",
+      "ActionAlias": "slack.sendMessage",
+      "Name": "Notify #sales",
+      "Alias": "notifySales",
+      "ConnectionId": null,
+      "Settings": {
+        "channel": "#rick-test-channel",
+        "message": "New Travel Club member: ${ steps.tidyMemberDetails.result.firstName } \u2013 prefers ${ trigger.fields.preferredDestination } \u2013 code ${ steps.generateDiscountCode.value }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -141,
+        "Y": 511
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "c0f96427-069a-49cd-93ae-1b9c5fe2b59a",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "c0f96427-069a-49cd-93ae-1b9c5fe2b59a",
+      "SourceHandle": null,
+      "TargetStepId": "eb690f23-0108-409f-a246-0af9d0ff33dc",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "eb690f23-0108-409f-a246-0af9d0ff33dc",
+      "SourceHandle": null,
+      "TargetStepId": "a3cc6471-ca45-4ac2-a39f-1f073f7dc713",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "a3cc6471-ca45-4ac2-a39f-1f073f7dc713",
+      "SourceHandle": null,
+      "TargetStepId": "f815d9f0-f1b8-4cfc-b9f5-c4247fbb6e1a",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022triggerPosition\u0022:{\u0022x\u0022:-124,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/8b169883829741f191e09c90e5686a6a",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/aec2d574f2534139b43a49a10a6ccd4d"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

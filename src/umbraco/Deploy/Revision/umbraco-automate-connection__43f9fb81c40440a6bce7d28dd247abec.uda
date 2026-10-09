@@ -2,11 +2,8 @@
   "Name": "Slack",
   "Alias": "slack",
   "Type": "slack",
-  "Settings": {
-    "oauthCredentialsId": "5101d854-e061-407d-bb8f-55df0f62e1df"
-  },
   "Udi": "umb://umbraco-automate-connection/43f9fb81c40440a6bce7d28dd247abec",
   "Dependencies": [],
   "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateConnectionArtifact",
-  "__version": "18.0.1"
+  "__version": "18.1.1"
 }

@@ -1,0 +1,21 @@
+{
+  "Name": "Author List",
+  "Alias": "AuthorList",
+  "File": "umb://template-file/AuthorList.cshtml",
+  "Master": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+  "Udi": "umb://template/23e621c7df614f4f9ef72daa193c63b8",
+  "Dependencies": [
+    {
+      "Udi": "umb://template-file/AuthorList.cshtml",
+      "Ordering": true,
+      "Mode": "Exist"
+    },
+    {
+      "Udi": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.TemplateArtifact",
+  "__version": "18.1.1"
+}

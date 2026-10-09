@@ -1,0 +1,23 @@
+{
+  "Name": "[MNTP] Trips",
+  "EditorAlias": "Umbraco.MultiNodeTreePicker",
+  "EditorUiAlias": "Umb.PropertyEditorUi.ContentPicker",
+  "Configuration": {
+    "startNode": {
+      "type": "content"
+    },
+    "filter": "bb664f4d-0811-4f87-be2c-58ad1576157e",
+    "minNumber": 0,
+    "maxNumber": 0,
+    "ignoreUserStartNodes": false
+  },
+  "Udi": "umb://data-type/1b40dd735689459d890db7f3da5af5c8",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type/bb664f4d08114f87be2c58ad1576157e",
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DataTypeArtifact",
+  "__version": "18.1.1"
+}

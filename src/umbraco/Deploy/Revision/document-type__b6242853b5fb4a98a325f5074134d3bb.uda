@@ -1,0 +1,108 @@
+{
+  "Name": "Offer",
+  "Alias": "offer",
+  "DefaultTemplate": "umb://template/813819660c61446395b7b1e5690e2cc0",
+  "AllowedTemplates": [
+    "umb://template/813819660c61446395b7b1e5690e2cc0"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-tag",
+  "Thumbnail": "folder.png",
+  "Description": "A time-limited offer. The offer\u0027s title uses the Title field from Header Controls (Wayfarer Travel Co. demo).",
+  "Permissions": {
+    "AllowedInLibrary": true,
+    "AllowedChildContentTypes": []
+  },
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+    "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+    "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+    "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+    "umb://document-type/f1052d4868f1438c812c9e053abeca99"
+  ],
+  "PropertyGroups": [
+    {
+      "Key": "376fb34a-82da-49a0-8251-bb81e931741e",
+      "Name": "Offer",
+      "Type": 1,
+      "Alias": "offer",
+      "PropertyTypes": [
+        {
+          "Key": "09d435b3-f22f-42d3-b432-d1985f8682e0",
+          "Alias": "startDate",
+          "DataType": "umb://data-type/5046194e4237453ca54715db3a07c4e1",
+          "ValueType": "System.DateTime",
+          "Name": "Start date",
+          "SortOrder": 1
+        },
+        {
+          "Key": "46198a2b-ac9b-41d9-aedd-e73d9525f9e0",
+          "Alias": "linkedTrips",
+          "DataType": "umb://data-type/1b40dd735689459d890db7f3da5af5c8",
+          "ValueType": "System.Collections.Generic.IEnumerable\u003CUmbraco.Cms.Core.Models.PublishedContent.IPublishedContent\u003E",
+          "Name": "Linked trips",
+          "SortOrder": 3
+        },
+        {
+          "Key": "63788941-f8d8-4fd1-af58-f4aae7ed3a72",
+          "Alias": "endDate",
+          "DataType": "umb://data-type/5046194e4237453ca54715db3a07c4e1",
+          "ValueType": "System.DateTime",
+          "Description": "The offer is unpublished by the \u0027Tidy up expired offers\u0027 automation after this date.",
+          "Name": "End date",
+          "SortOrder": 2
+        },
+        {
+          "Key": "8f70fccf-8396-4dd0-8c30-4bc62e1a791c",
+          "Alias": "discountDescription",
+          "DataType": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+          "ValueType": "System.String",
+          "Name": "Discount description"
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/b6242853b5fb4a98a325f5074134d3bb",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/1b40dd735689459d890db7f3da5af5c8",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/5046194e4237453ca54715db3a07c4e1",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/f1052d4868f1438c812c9e053abeca99",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://template/813819660c61446395b7b1e5690e2cc0",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

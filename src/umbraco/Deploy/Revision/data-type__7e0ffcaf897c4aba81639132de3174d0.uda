@@ -1,0 +1,14 @@
+{
+  "Name": "[ElementPicker] Categories",
+  "EditorAlias": "Umbraco.ElementPicker",
+  "EditorUiAlias": "Umb.PropertyEditorUi.ElementPicker",
+  "Configuration": {
+    "startNodeId": [
+      "b4fc52e0-7507-4d5e-afc0-c70cfd8effab"
+    ]
+  },
+  "Udi": "umb://data-type/7e0ffcaf897c4aba81639132de3174d0",
+  "Dependencies": [],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DataTypeArtifact",
+  "__version": "18.1.1"
+}

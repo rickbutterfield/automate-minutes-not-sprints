@@ -1,0 +1,47 @@
+{
+  "Name": "Footer Controls",
+  "Alias": "footerControls",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-pink",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "19d6db90-3303-45cf-850c-c7d030452843",
+      "Name": "Footer",
+      "SortOrder": 20,
+      "Type": 1,
+      "Alias": "footer",
+      "PropertyTypes": [
+        {
+          "Key": "38e63c07-6381-45c0-ac6b-29da86775e85",
+          "Alias": "socialIconLinks",
+          "DataType": "umb://data-type/f8d7b987745c471f8f34a47f00838f06",
+          "ValueType": "Umbraco.Cms.Core.Models.Blocks.BlockListModel",
+          "Description": "Add any social links using the SVG icons",
+          "Name": "Social Icon Links",
+          "SortOrder": 5
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/8e37a6b6fe2a43b0adbce41822d005c4",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/f8d7b987745c471f8f34a47f00838f06",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

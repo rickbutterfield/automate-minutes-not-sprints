@@ -1,0 +1,38 @@
+{
+  "Name": "XML Sitemap",
+  "Alias": "xMLSitemap",
+  "DefaultTemplate": "umb://template/72f84ac5d0434035937f2f0a99d6afbe",
+  "AllowedTemplates": [
+    "umb://template/72f84ac5d0434035937f2f0a99d6afbe"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-sitemap color-blue",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/ac6ebe34fc2b4ee09b26e7a22adbe591",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://template/72f84ac5d0434035937f2f0a99d6afbe",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

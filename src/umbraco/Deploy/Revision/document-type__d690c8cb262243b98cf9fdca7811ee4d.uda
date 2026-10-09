@@ -1,0 +1,56 @@
+{
+  "Name": "Header Controls",
+  "Alias": "headerControls",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-pink",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "05bde0a5-384e-4a60-9350-5f51e063fd69",
+      "Name": "Hero",
+      "SortOrder": 11,
+      "Type": 1,
+      "Alias": "hero",
+      "PropertyTypes": [
+        {
+          "Key": "27e86550-e272-46b5-978e-2cc2f7e31118",
+          "Alias": "subtitle",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "Enter a subtitle for this page",
+          "Name": "Subtitle",
+          "SortOrder": 10
+        },
+        {
+          "Key": "4d694810-d4a8-42aa-b11c-4e265f09be59",
+          "Alias": "title",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "Enter the title for the page. If this is empty the name of the page will be used.",
+          "Name": "Title",
+          "SortOrder": 5
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}
