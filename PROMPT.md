@@ -381,3 +381,54 @@ Reply with:
 11. The `.demo/notes` files you edited
 12. Whether you made the optional 7c change, the diff, and whether the log entry
     appeared in the run view
+---
+
+## Learnings since this brief (October 2026)
+
+What the build and the capture rounds (`CAPTURE-3.md` to `CAPTURE-8.md`) found. Read this
+before re-running the brief or rebuilding Demo 1.
+
+**Commerce and Demo 1**
+- There's no Commerce "discount code" action. Demo 1 uses **Issue Gift Card**
+  (`umbracoCommerce.issueGiftCard`); its output `code` is the "discount code" in the email
+  and Slack message. Its settings are Store ID and Currency ID (plain text, GUIDs),
+  Amount, Code and Expiry Date. There's no recipient field.
+- The store "Wayfarer Travel Co." now exists (base currency GBP, so prices on the site and
+  slides are in £, not DKK/EUR). Demo 1 issues £100 cards. Issued cards show as Inactive.
+- A backoffice user only sees the store in the Commerce section once it has access under
+  Settings → Stores → Wayfarer Travel Co. → Permissions.
+- Demo 1's description still says step 2 is a placeholder until a store exists; that's
+  out of date.
+- Demo 1 (Demo backup) is published on the Join the Travel Club form. Anything else
+  published on that form fires too, so a live build in Live demo doubles the gift card,
+  email and Slack message unless one of them is unpublished.
+
+**Email, Slack and Forms**
+- SMTP points at a local Mailpit (`localhost:1025`, inbox `http://localhost:8025`); see
+  `README.md`.
+- Every Slack step posts to `#rick-test-channel` in the Umbraco Slack workspace; there's
+  no separate demo workspace yet.
+- The Forms default theme looked unstyled next to the Clean site; `forms.css` fixes it
+  (see `README.md`).
+
+**Building Demo 1 live in the backoffice**
+- Steps are added with the "+" handle under a node. Insert each binding with the
+  property's "…" → Insert binding; it lands at the end of the field. Pick the entry under
+  the step's own name, not "Previous (…)", to get `${ steps.generateDiscountCode.code }`.
+- The step alias is generated from the name ("Generate a discount code" gives
+  `generateADiscountCode`); unlock it to type `generateDiscountCode`.
+- Step dialogs keep settings only on **Save**. A new automation is lost if you leave the
+  page before the footer Save, so save a draft before opening workspace settings to allow
+  Slack.
+- Clean up afterwards: delete the automation from Live demo and remove Slack from its
+  Allowed Connections, so it's empty again for the talk.
+
+**Runs and approvals**
+- A Request Approval run shows Suspended. Approve it from Automation → Approvals → Review
+  → Approve (not from the run view).
+- The run panel lists steps by action type ("Issue Gift Card"); the canvas shows step
+  names ("Generate a discount code").
+- The run canvas has no link from the run panel; open
+  `/umbraco/section/automation/workspace/ua:run/edit/<runId>/view/canvas`.
+
+See `CLAUDE.md` for the agent-facing details and the capture method.

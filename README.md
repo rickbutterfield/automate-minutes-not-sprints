@@ -60,6 +60,61 @@ src/                    The Umbraco site.
 webinar-triggers-actions.slnx
 ```
 
+## The talk demo site ("Automate in Minutes, Not Sprints")
+
+The same site also carries the content and automations for the conference talk, set up
+from `PROMPT.md`: a fictional "Wayfarer Travel Co." (Clean starter kit) with
+destinations, trips, offers, two Umbraco Forms and these Automate workspaces:
+
+| Workspace | What's in it | Allowed connections |
+|---|---|---|
+| **Live demo** | Empty on purpose: Demo 1 is built here on stage | none (Send Slack Message shows as unavailable until Slack is allowed) |
+| **Demo backup** | "Member signed up: Welcome, notify, reward" (Demo 1, published) and a Run Script copy (draft) | Slack |
+| **AI and Approvals** | "Enquiry reply: agent drafts, human decides" (Demo 2, published) and the media alt-text examples | Slack |
+| **Marketing**, **Operations**, **Bookings** | The slide examples and the original trip-enquiry automation | as needed |
+
+- **Demo 1** (Join the Travel Club form → Issue Gift Card £100 → Slack → welcome
+  email). The Slack step posts to `#rick-test-channel`. Gift cards are issued in the
+  "Wayfarer Travel Co." store (GBP).
+- **Demo 2** (Plan My Trip form → AI agent draft → Request Approval → email or Slack).
+  A run waiting for approval shows **Suspended**. Approve it from **Automation →
+  Approvals → Review → Approve**; the run view itself has no approve button.
+
+### Local email: Mailpit
+
+Welcome and reply emails go to a local Mailpit inbox, not a real mail server:
+
+```
+docker run -d --name mailpit -p 8025:8025 -p 1025:1025 axllent/mailpit
+```
+
+`src/appsettings.Development.json` points Umbraco's SMTP at `localhost:1025`
+(from `hello@wayfarer.example.com`). Restart the site after changing it. The inbox is
+at `http://localhost:8025`.
+
+### Commerce access
+
+The Commerce section only lists a store if your backoffice user has access to it:
+**Settings → Stores → Wayfarer Travel Co. → Permissions**, then turn on your user (or
+its user group) and save. Gift cards are under **Commerce → Wayfarer Travel Co. →
+Gift Cards** (newest first; the list doesn't refresh itself, so click another item such
+as Discounts, then Gift Cards).
+
+### Forms styling
+
+`src/wwwroot/assets/css/forms.css` (linked from `src/Views/master.cshtml`) makes Umbraco
+Forms match the site's Bootstrap forms (Book A Trip), shows the consent text once, and
+shortens the page header on form pages so the Join form fits at 1920 × 1080.
+
+### Screenshots and recordings
+
+`captures/` holds the stills and screen recordings made for the slides and the Claude
+Motion films, one folder per capture round (`round1-2/` … `round8/`), each with its
+`manifest.json` (stills) or `<clip>.actions.json` (recordings). The briefs that produced
+them are `CAPTURE-*.md`. They were made with the `record-it` Claude Code skill: 4K
+(3840 × 2160) PNGs and H.264 MP4s from a headless Chrome screencast, recorded at human
+pace with a log of every click and result. See `CLAUDE.md` for how that works here.
+
 ## Notes
 
 - The `Umbraco.Automate` NuGet packages are versioned in `Directory.Packages.props`.
