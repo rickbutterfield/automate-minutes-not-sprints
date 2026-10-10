@@ -22,6 +22,7 @@
     <link href="/assets/css/swiffy-slider.min.css" rel="stylesheet" asp-append-version="true" />
     <!-- Umbraco Forms -->
     @Html.RenderUmbracoFormDependencies(Url)
+    <link href="/assets/css/forms.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body>
     @await Html.CachedPartialAsync("~/Views/Partials/mainNavigation.cshtml", model: Model, cacheTimeout: TimeSpan.FromMinutes(60))
