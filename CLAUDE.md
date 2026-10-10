@@ -62,9 +62,10 @@ setup brief; `CAPTURE-*.md` are the capture briefs.
   button), then Save the workspace.
 - **Runs:** the run panel slides in (take screenshots once it settles). Read status from
   the Run Info Status tag (`umb-property-layout` labelled Status → `uui-tag`), not page
-  text. Runs lists don't refresh themselves (click Design then Runs). There's no click
-  path from a run to its canvas; it's at
-  `/umbraco/section/automation/workspace/ua:run/edit/<runId>/view/canvas`.
+  text. Runs lists don't refresh themselves (click Runs, then Design, then Runs). For a
+  proof shot use the run panel: it shows each step's status and duration, while the run
+  canvas shows one overall status. There's no click path from a run to its canvas; it's
+  at `/umbraco/section/automation/workspace/ua:run/edit/<runId>/view/canvas`.
 - **Approvals:** Automation → Approvals → Review → Approve. Afterwards the list shows
   "No pending approvals." and the run completes 3–4 s later.
 - **Front-end pages:** the Engage Cockpit "OPEN" badge only renders with backoffice
@@ -81,11 +82,24 @@ details. What worked here:
 - Headless installed Chrome launched from the Playwright MCP sandbox with
   `--force-device-scale-factor=2`, viewport 1920 × 1080, `deviceScaleFactor: 2`, so
   screencast frames are a real 3840 × 2160 (the visible MCP window is capped by the
-  display). Launch it with `--remote-debugging-port` and reconnect with
-  `connectOverCDP` to spread a long take over several tool calls.
+  display). Keep a take in one tool call so the screencast never pauses; if it must
+  span calls (launch with `--remote-debugging-port`, reconnect with `connectOverCDP`),
+  log each pause, because it leaves a still frame to trim.
 - The MCP sandbox has no `fs`/`require`: frames and events go to the skill's
   `frame_receiver.py` through a helper tab, then `build_actions.py` and `encode.py`
-  (H.264, CRF 18, 30 fps, under 20 MB; split long files with `-f segment`).
+  (H.264 `-crf 19 -g 10 -bf 0 -movflags +faststart`, 30 fps, under 20 MB; split long
+  files with `-f segment`). **Frequent keyframes are required:** Claude Motion's export
+  rendered blank frames far from a keyframe in clips with x264's default spacing. Check
+  with the skill's `check_keyframes.py` (a keyframe at least every 0.5 s).
+- Verify every export before using it: the skill's `check_blank.py` samples at 10 fps and
+  flags near-zero-variance stretches; look at the saved frame from each, because close-ups
+  of light UI score as low as blank frames.
+- Several pages on one clock: log each page's `startedAt` and the trigger click's
+  `clickAt`, and give each result `secondsFromClick`. Time results from the first painted
+  frame; detection alone is 0.1–0.15 s early.
+- Before the take you'll use, deal with what earlier takes left (Mailpit emails, gift
+  cards): clear them only with the user's OK, or plan to ring the newest row. Keep
+  Mailpit's "New message" toast (bottom right) out of frame.
 - The Playwright MCP only runs script files from the repo or `.playwright-mcp/`.
 - Full ffmpeg is the winget Gyan.FFmpeg build under
   `%LOCALAPPDATA%\Microsoft\WinGet\Packages\` (not on PATH in older sessions). Use the
