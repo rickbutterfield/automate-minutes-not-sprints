@@ -1,0 +1,59 @@
+{
+  "Name": "Content",
+  "Alias": "content",
+  "DefaultTemplate": "umb://template/c604acfe4b214e4681f4b2b34d850fd1",
+  "AllowedTemplates": [
+    "umb://template/c604acfe4b214e4681f4b2b34d850fd1"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-document color-blue",
+  "Thumbnail": "folder.png",
+  "Description": "A flexible page type for general content, allowing rich text, images, and media to present information in a structured layout.",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+    "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+    "umb://document-type/b1c27e8c169242ad9701c87f12716ee7",
+    "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+    "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/b871f83c23954894be0f5422c1a71e48",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/b1c27e8c169242ad9701c87f12716ee7",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://template/c604acfe4b214e4681f4b2b34d850fd1",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

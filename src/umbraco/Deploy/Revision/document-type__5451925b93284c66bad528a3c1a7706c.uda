@@ -1,0 +1,147 @@
+{
+  "Name": "Destination",
+  "Alias": "destination",
+  "DefaultTemplate": "umb://template/dc76d885c8a04061ab09ed1ab5b84bd2",
+  "AllowedTemplates": [
+    "umb://template/dc76d885c8a04061ab09ed1ab5b84bd2"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-globe",
+  "Thumbnail": "folder.png",
+  "Description": "A travel destination (Wayfarer Travel Co. demo).",
+  "Permissions": {
+    "AllowedInLibrary": true,
+    "AllowedChildContentTypes": [
+      "umb://document-type/bb664f4d08114f87be2c58ad1576157e"
+    ]
+  },
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+    "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+    "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+    "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+    "umb://document-type/f1052d4868f1438c812c9e053abeca99"
+  ],
+  "PropertyGroups": [
+    {
+      "Key": "17a536d0-da12-49da-90cd-5d413f88cf2e",
+      "Name": "Destination",
+      "Type": 1,
+      "Alias": "destination",
+      "PropertyTypes": [
+        {
+          "Key": "095ddfa0-e037-4649-8502-1460214a729d",
+          "Alias": "bestMonths",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "For example: June\u2013August.",
+          "Name": "Best months",
+          "SortOrder": 6
+        },
+        {
+          "Key": "0a50eb67-7699-4a9c-b7a7-b3f81e07f174",
+          "Alias": "heroImage",
+          "DataType": "umb://data-type/ad9f0cf2bda245d59ea1a63cfc873fd3",
+          "ValueType": "Umbraco.Cms.Core.Models.MediaWithCrops",
+          "Name": "Hero image",
+          "SortOrder": 4
+        },
+        {
+          "Key": "3260ac4f-bbdb-42d8-92ac-39941fcab79f",
+          "Alias": "country",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Name": "Country"
+        },
+        {
+          "Key": "69420d00-0231-4c46-ab95-b05ffdb5b8d1",
+          "Alias": "summary",
+          "DataType": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+          "ValueType": "System.String",
+          "Name": "Summary",
+          "SortOrder": 2
+        },
+        {
+          "Key": "cc21f005-d8b3-48bc-81ef-23aa6f7d5d09",
+          "Alias": "region",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Name": "Region",
+          "SortOrder": 1
+        },
+        {
+          "Key": "e23ae9b8-5b64-4721-aaa0-cc6706b22a0b",
+          "Alias": "body",
+          "DataType": "umb://data-type/ca90c9500aff4e72b976a30b1ac57dad",
+          "ValueType": "Umbraco.Cms.Core.Strings.IHtmlEncodedString",
+          "Name": "Body",
+          "SortOrder": 3
+        },
+        {
+          "Key": "f7ac114a-c90e-453e-be15-8acf7b6c1840",
+          "Alias": "averageFlightTimeHours",
+          "DataType": "umb://data-type/2e6d3631066e44b8aec496f09099b2b5",
+          "ValueType": "System.Int32",
+          "Description": "Whole hours from Copenhagen.",
+          "Name": "Average flight time (hours)",
+          "SortOrder": 5
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/5451925b93284c66bad528a3c1a7706c",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/2e6d3631066e44b8aec496f09099b2b5",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/ad9f0cf2bda245d59ea1a63cfc873fd3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/ca90c9500aff4e72b976a30b1ac57dad",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/bb664f4d08114f87be2c58ad1576157e",
+      "Mode": "Exist"
+    },
+    {
+      "Udi": "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/f1052d4868f1438c812c9e053abeca99",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://template/dc76d885c8a04061ab09ed1ab5b84bd2",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

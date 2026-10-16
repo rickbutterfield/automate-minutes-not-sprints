@@ -1,0 +1,122 @@
+{
+  "Name": "Trip",
+  "Alias": "trip",
+  "DefaultTemplate": "umb://template/2bb6cd683c5c428ba303603dafbf3bda",
+  "AllowedTemplates": [
+    "umb://template/2bb6cd683c5c428ba303603dafbf3bda"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-plane",
+  "Thumbnail": "folder.png",
+  "Description": "A bookable trip to a destination (Wayfarer Travel Co. demo).",
+  "Permissions": {
+    "AllowedInLibrary": true,
+    "AllowedChildContentTypes": []
+  },
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+    "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+    "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+    "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+    "umb://document-type/f1052d4868f1438c812c9e053abeca99"
+  ],
+  "PropertyGroups": [
+    {
+      "Key": "e0c0f24b-36ed-4620-abe7-31c3a3d6f12f",
+      "Name": "Trip",
+      "Type": 1,
+      "Alias": "trip",
+      "PropertyTypes": [
+        {
+          "Key": "2140edf8-b1c9-4954-a141-6e72066d6e26",
+          "Alias": "destination",
+          "DataType": "umb://data-type/fd1e0da556064862b6795d0cf3a52a59",
+          "ValueType": "Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent",
+          "Description": "The destination this trip goes to.",
+          "Name": "Destination"
+        },
+        {
+          "Key": "3b6c913d-78c0-4d01-97ad-2ddfc5b71bac",
+          "Alias": "durationDays",
+          "DataType": "umb://data-type/2e6d3631066e44b8aec496f09099b2b5",
+          "ValueType": "System.Int32",
+          "Name": "Duration (days)",
+          "SortOrder": 1
+        },
+        {
+          "Key": "43f671b8-fdde-485d-bdd3-a4eea3beceb9",
+          "Alias": "departureDates",
+          "DataType": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+          "ValueType": "System.String",
+          "Description": "One date per line, DD-MM-YYYY.",
+          "Name": "Departure dates",
+          "SortOrder": 3
+        },
+        {
+          "Key": "56ca7ea9-3319-48aa-a025-5cd1a467ed03",
+          "Alias": "description",
+          "DataType": "umb://data-type/ca90c9500aff4e72b976a30b1ac57dad",
+          "ValueType": "Umbraco.Cms.Core.Strings.IHtmlEncodedString",
+          "Name": "Description",
+          "SortOrder": 4
+        },
+        {
+          "Key": "5f15cc6a-6d15-4a8a-a253-d50a1c3525c9",
+          "Alias": "priceFrom",
+          "DataType": "umb://data-type/2e6d3631066e44b8aec496f09099b2b5",
+          "ValueType": "System.Int32",
+          "Description": "Lowest price per person in GBP (\u00A3).",
+          "Name": "Price from (GBP)",
+          "SortOrder": 2
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/bb664f4d08114f87be2c58ad1576157e",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/2e6d3631066e44b8aec496f09099b2b5",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/ca90c9500aff4e72b976a30b1ac57dad",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/fd1e0da556064862b6795d0cf3a52a59",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/f1052d4868f1438c812c9e053abeca99",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://template/2bb6cd683c5c428ba303603dafbf3bda",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

@@ -1,0 +1,70 @@
+{
+  "Name": "Travel Club Member",
+  "Alias": "travelClubMember",
+  "Icon": "icon-user",
+  "Thumbnail": "folder.png",
+  "Description": "Wayfarer Travel Club member (demo).",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "497974b6-31ed-4af6-9771-a2b0e3a348f5",
+      "Name": "Travel Club",
+      "Type": 1,
+      "Alias": "travelClub",
+      "PropertyTypes": [
+        {
+          "Key": "5c171d01-4e07-42a6-a86b-114319bf66ce",
+          "Alias": "marketingConsent",
+          "DataType": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+          "ValueType": "System.Boolean",
+          "Description": "GDPR: the member agreed to receive Travel Club marketing emails.",
+          "Name": "Marketing consent",
+          "SortOrder": 2,
+          "MemberCanEdit": true,
+          "ViewOnProfile": true
+        },
+        {
+          "Key": "73bb35ef-250c-4fad-8070-1b62515f00c7",
+          "Alias": "firstName",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Name": "First name",
+          "MemberCanEdit": true,
+          "ViewOnProfile": true
+        },
+        {
+          "Key": "a504b508-76e8-4137-9278-c3d7e43265b1",
+          "Alias": "preferredDestination",
+          "DataType": "umb://data-type/fd1e0da556064862b6795d0cf3a52a59",
+          "ValueType": "Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent",
+          "Description": "Pick a Destination page.",
+          "Name": "Preferred destination",
+          "SortOrder": 1,
+          "MemberCanEdit": true,
+          "ViewOnProfile": true
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://member-type/ff4a17baf26f4053a857dc3c19a13a62",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/fd1e0da556064862b6795d0cf3a52a59",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.MemberTypeArtifact",
+  "__version": "18.1.1"
+}

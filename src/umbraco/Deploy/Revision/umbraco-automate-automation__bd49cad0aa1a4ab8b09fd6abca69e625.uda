@@ -1,0 +1,116 @@
+{
+  "Name": "News published: tell the team",
+  "Alias": "news-published-tell-the-team",
+  "Description": "Supports the control-flow slide\u0027s spoken example. Content Published, then If the document type is article, then Get Content (for the URL), then Slack #content with the headline and link.",
+  "WorkspaceUdi": "umb://umbraco-automate-workspace/93b33d2593a8452cacf2d23c5882c25e",
+  "Trigger": {
+    "TriggerAlias": "umbracoAutomate.contentPublished",
+    "Settings": {
+      "onAutomationOriginatedEvent": "SkipOnCycle"
+    }
+  },
+  "Steps": [
+    {
+      "Id": "9eff7452-058e-4422-8bf2-e8aba41e7680",
+      "ActionAlias": "umbracoAutomate.getContent",
+      "Name": "Get the article (for its URL)",
+      "Alias": "getArticle",
+      "ConnectionId": null,
+      "Settings": {
+        "contentKey": "${ trigger.contentKey }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -193,
+        "Y": 326
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "92260fda-fa69-4eb5-a615-15521846f8db",
+      "ActionAlias": "slack.sendMessage",
+      "Name": "Tell #content",
+      "Alias": "tellContentTeam",
+      "ConnectionId": null,
+      "Settings": {
+        "channel": "#rick-test-channel",
+        "message": "New article published: ${ trigger.contentName } \u2013 ${ steps.getArticle.url }"
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -193,
+        "Y": 513
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    },
+    {
+      "Id": "ad2659b9-dc38-4ffc-a91c-7cd87096b134",
+      "ActionAlias": "umbracoAutomate.if",
+      "Name": "Is it a news article",
+      "Alias": "isNewsArticle",
+      "ConnectionId": null,
+      "Settings": {
+        "conditions": {
+          "Groups": [
+            {
+              "Conditions": [
+                {
+                  "LeftOperand": "${ trigger.contentTypeAlias }",
+                  "Operator": "Equals",
+                  "RightOperand": "article"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "InputMappings": {},
+      "Position": {
+        "X": -130,
+        "Y": 137
+      },
+      "ErrorBehavior": 2,
+      "RetryInterval": null,
+      "MaxRetries": null
+    }
+  ],
+  "Connections": [
+    {
+      "SourceStepId": "00000000-0000-0000-0000-000000000000",
+      "SourceHandle": null,
+      "TargetStepId": "ad2659b9-dc38-4ffc-a91c-7cd87096b134",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    },
+    {
+      "SourceStepId": "ad2659b9-dc38-4ffc-a91c-7cd87096b134",
+      "SourceHandle": "true",
+      "TargetStepId": "9eff7452-058e-4422-8bf2-e8aba41e7680",
+      "TargetHandle": null,
+      "Outcome": "true",
+      "Filter": null
+    },
+    {
+      "SourceStepId": "9eff7452-058e-4422-8bf2-e8aba41e7680",
+      "SourceHandle": null,
+      "TargetStepId": "92260fda-fa69-4eb5-a615-15521846f8db",
+      "TargetHandle": null,
+      "Outcome": null,
+      "Filter": null
+    }
+  ],
+  "CanvasState": "{\u0022triggerPosition\u0022:{\u0022x\u0022:-132,\u0022y\u0022:0}}",
+  "Udi": "umb://umbraco-automate-automation/bd49cad0aa1a4ab8b09fd6abca69e625",
+  "Dependencies": [
+    {
+      "Udi": "umb://umbraco-automate-workspace/93b33d2593a8452cacf2d23c5882c25e"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateAutomationArtifact",
+  "__version": "18.1.1"
+}

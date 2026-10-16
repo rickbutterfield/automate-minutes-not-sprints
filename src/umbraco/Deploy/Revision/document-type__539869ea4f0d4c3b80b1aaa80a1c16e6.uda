@@ -1,0 +1,42 @@
+{
+  "Name": "Category List",
+  "Alias": "categoryList",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-tags color-blue",
+  "Thumbnail": "folder.png",
+  "Description": "Allows you to create a list of categories for you to pick from when writing your articles.",
+  "Permissions": {
+    "AllowedChildContentTypes": [
+      "umb://document-type/e33a8f18ae714a7dbc2c76ceb9fd9e97"
+    ]
+  },
+  "ListView": "c0808dd3-8133-4e4b-8ce8-e2bea84a96a4",
+  "Parent": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/539869ea4f0d4c3b80b1aaa80a1c16e6",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/c0808dd381334e4b8ce8e2bea84a96a4",
+      "Mode": "Exist"
+    },
+    {
+      "Udi": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/e33a8f18ae714a7dbc2c76ceb9fd9e97",
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

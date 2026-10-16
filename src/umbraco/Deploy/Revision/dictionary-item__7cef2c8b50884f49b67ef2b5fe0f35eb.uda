@@ -1,0 +1,21 @@
+{
+  "Name": "umb://dictionary-item/7cef2c8b50884f49b67ef2b5fe0f35eb",
+  "ItemKey": "Footer.CopyrightTitle",
+  "Translations": [
+    {
+      "Key": "7cef2c8b-5088-4f49-b67e-f2b5fe0f35eb",
+      "Value": "Copyright",
+      "LanguageIsoCode": "en-US"
+    }
+  ],
+  "Udi": "umb://dictionary-item/7cef2c8b50884f49b67ef2b5fe0f35eb",
+  "Dependencies": [
+    {
+      "Udi": "umb://language/en-US",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DictionaryItemArtifact",
+  "__version": "18.1.1"
+}

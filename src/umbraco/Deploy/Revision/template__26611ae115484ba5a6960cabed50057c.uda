@@ -1,0 +1,21 @@
+{
+  "Name": "Article List",
+  "Alias": "articleList",
+  "File": "umb://template-file/articleList.cshtml",
+  "Master": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+  "Udi": "umb://template/26611ae115484ba5a6960cabed50057c",
+  "Dependencies": [
+    {
+      "Udi": "umb://template-file/articleList.cshtml",
+      "Ordering": true,
+      "Mode": "Exist"
+    },
+    {
+      "Udi": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.TemplateArtifact",
+  "__version": "18.1.1"
+}

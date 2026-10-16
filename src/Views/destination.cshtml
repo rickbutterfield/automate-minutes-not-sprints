@@ -1,0 +1,35 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Destination>
+
+@using Clean.Core.Models.ViewModels
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    Layout = "master.cshtml";
+}
+
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                @if (Model.HeroImage is not null)
+                {
+                    <img class="img-fluid mb-4" src="@Model.HeroImage.GetCropUrl(width: 1200)" alt="@Model.HeroImage.Content.Value("altText")" />
+                }
+                <p class="post-meta">@Model.Country · @Model.Region · ca. @Model.AverageFlightTimeHours h flight · best: @Model.BestMonths</p>
+                <p class="lead">@Model.Summary</p>
+                @Model.Body
+
+                <h2 class="mt-5">Trips</h2>
+                @foreach (var trip in Model.Children<ContentModels.Trip>() ?? Enumerable.Empty<ContentModels.Trip>())
+                {
+                    <div class="post-preview">
+                        <a href="@trip.Url()"><h3 class="post-title">@trip.Name</h3></a>
+                        <p class="post-meta">@trip.DurationDays days · from @trip.PriceFrom.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("en-GB"))</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</main>

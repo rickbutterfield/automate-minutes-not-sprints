@@ -1,0 +1,17 @@
+{
+  "Name": "Live demo",
+  "Alias": "live-demo",
+  "ServiceAccountKey": "b272e18e-beeb-40ab-ba2c-0d8085e61cf3",
+  "UserGroups": [
+    "e5e7f6c8-7f9c-4b5b-8d5d-9e1e5a4f7e4d"
+  ],
+  "AllowedConnectionUdis": [],
+  "Udi": "umb://umbraco-automate-workspace/99a4f34968d04e508fa89bf2f52c052e",
+  "Dependencies": [
+    {
+      "Udi": "umb://user-group/e5e7f6c87f9c4b5b8d5d9e1e5a4f7e4d"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateWorkspaceArtifact",
+  "__version": "18.1.1"
+}

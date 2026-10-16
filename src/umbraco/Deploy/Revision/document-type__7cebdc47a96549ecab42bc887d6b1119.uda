@@ -1,0 +1,65 @@
+{
+  "Name": "Visibility Controls",
+  "Alias": "visibilityControls",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-pink",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "047f36ae-a8ca-43c0-a386-372bfa7144bd",
+      "Name": "Visibility",
+      "SortOrder": 30,
+      "Type": 1,
+      "Alias": "visibility",
+      "PropertyTypes": [
+        {
+          "Key": "08b7cc39-05d0-4b97-896d-68c74c912dea",
+          "Alias": "umbracoNaviHide",
+          "DataType": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+          "ValueType": "System.Boolean",
+          "Description": "Tick this box if you want to hide this page from search results",
+          "Name": "Hide From Search",
+          "SortOrder": 10
+        },
+        {
+          "Key": "09404570-096b-428b-90cb-6ac55bc47fd2",
+          "Alias": "hideFromXMLSitemap",
+          "DataType": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+          "ValueType": "System.Boolean",
+          "Description": "A machine-readable sitemap for search engines, listing all important URLs to improve SEO and indexing",
+          "Name": "Hide From XML Sitemap",
+          "SortOrder": 15
+        },
+        {
+          "Key": "35ae0d0c-361d-4a53-835c-72b7e59a166e",
+          "Alias": "hideFromTopNavigation",
+          "DataType": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+          "ValueType": "System.Boolean",
+          "Description": "Tick this box if you want to hide this page from the navigation in the header",
+          "Name": "Hide From Top Navigation",
+          "SortOrder": 5
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/4466fc95454f4342a1c88892f1383ab0",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

@@ -1,0 +1,64 @@
+{
+  "Name": "Icon Link Row",
+  "Alias": "iconLinkRow",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-link color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "ad2888ca-4474-4efa-aea3-56e4c8c580bb",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "97f0c9df-4f4c-4782-b4a4-2ca5917aaf68",
+          "Alias": "icon",
+          "DataType": "umb://data-type/7b21df8f973a4e2d8ee1a77924d9e211",
+          "ValueType": "Umbraco.Cms.Core.Models.MediaWithCrops",
+          "Description": "Choose the icon for this item. It must be an SVG",
+          "Mandatory": true,
+          "MandatoryMessage": "You must choose an icon",
+          "Name": "Icon",
+          "SortOrder": 10
+        },
+        {
+          "Key": "aad73ce1-4ede-49e2-8eef-7ab705f6bdb3",
+          "Alias": "link",
+          "DataType": "umb://data-type/2d350d2151dd4c368eee18170985ce91",
+          "ValueType": "Umbraco.Cms.Core.Models.Link",
+          "Description": "Enter your link for this item",
+          "Mandatory": true,
+          "MandatoryMessage": "You must add a link",
+          "Name": "Link",
+          "SortOrder": 20
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/17db13babbd94a44b28f986301156754",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/2d350d2151dd4c368eee18170985ce91",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/7b21df8f973a4e2d8ee1a77924d9e211",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

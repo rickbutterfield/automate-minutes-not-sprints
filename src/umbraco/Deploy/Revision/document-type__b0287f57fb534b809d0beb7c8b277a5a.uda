@@ -1,0 +1,65 @@
+{
+  "Name": "Author List",
+  "Alias": "authorList",
+  "DefaultTemplate": "umb://template/23e621c7df614f4f9ef72daa193c63b8",
+  "AllowedTemplates": [
+    "umb://template/23e621c7df614f4f9ef72daa193c63b8"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-users color-blue",
+  "Thumbnail": "folder.png",
+  "Description": "Allows you to create a list of authors for you to pick from when writing your articles.",
+  "Permissions": {
+    "AllowedChildContentTypes": [
+      "umb://document-type/eb9fd2d152584bf8beaba2415b2e365a"
+    ]
+  },
+  "Parent": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+    "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+    "umb://document-type/b1c27e8c169242ad9701c87f12716ee7",
+    "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+    "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/b0287f57fb534b809d0beb7c8b277a5a",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/b1c27e8c169242ad9701c87f12716ee7",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/eb9fd2d152584bf8beaba2415b2e365a",
+      "Mode": "Exist"
+    },
+    {
+      "Udi": "umb://template/23e621c7df614f4f9ef72daa193c63b8",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

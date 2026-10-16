@@ -2,11 +2,8 @@
   "Name": "Global Travel Suppliers",
   "Alias": "global-travel-suppliers",
   "Type": "travel.supplierPortal",
-  "Settings": {
-    "apiKey": "demo-api-key-12345"
-  },
   "Udi": "umb://umbraco-automate-connection/763f13c1637d45e08c8e8ac21f7f7075",
   "Dependencies": [],
   "__type": "Umbraco.Deploy.Automate,Umbraco.Deploy.Automate.Artifacts.AutomateConnectionArtifact",
-  "__version": "18.0.1"
+  "__version": "18.1.1"
 }

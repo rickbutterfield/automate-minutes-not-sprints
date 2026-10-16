@@ -1,0 +1,25 @@
+{
+  "Name": "Category",
+  "Alias": "category",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-tag color-blue",
+  "Thumbnail": "folder.png",
+  "Description": "A category page to be picked when writing articles",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/e33a8f18ae714a7dbc2c76ceb9fd9e97",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

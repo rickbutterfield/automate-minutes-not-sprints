@@ -1,0 +1,21 @@
+{
+  "Name": "umb://dictionary-item/d31aca27aff24cc78a7b3dbea5d27ba9",
+  "ItemKey": "ContactForm.Send",
+  "Translations": [
+    {
+      "Key": "d31aca27-aff2-4cc7-8a7b-3dbea5d27ba9",
+      "Value": "Send",
+      "LanguageIsoCode": "en-US"
+    }
+  ],
+  "Udi": "umb://dictionary-item/d31aca27aff24cc78a7b3dbea5d27ba9",
+  "Dependencies": [
+    {
+      "Udi": "umb://language/en-US",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DictionaryItemArtifact",
+  "__version": "18.1.1"
+}

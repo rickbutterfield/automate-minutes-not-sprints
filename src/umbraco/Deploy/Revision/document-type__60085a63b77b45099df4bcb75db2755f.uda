@@ -1,0 +1,77 @@
+{
+  "Name": "Latest Articles Row",
+  "Alias": "latestArticlesRow",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-bulleted-list color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "2873a2c5-19c2-476e-bd46-e4f29d632ecc",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "6962d14c-37cc-43b4-98eb-996282650985",
+          "Alias": "showPagination",
+          "DataType": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+          "ValueType": "System.Boolean",
+          "Description": "Set this to true if you would like to show the pagination for these articles",
+          "Name": "Show Pagination",
+          "SortOrder": 15
+        },
+        {
+          "Key": "7ca21705-0c07-4822-8cf2-5126d98b9125",
+          "Alias": "articleList",
+          "DataType": "umb://data-type/fd1e0da556064862b6795d0cf3a52a59",
+          "ValueType": "Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent",
+          "Description": "Choose the parent page where you want to display articles from",
+          "Mandatory": true,
+          "MandatoryMessage": "You need to choose an article list page",
+          "Name": "Article List",
+          "SortOrder": 5
+        },
+        {
+          "Key": "a1e08734-bb71-4a2e-a8e4-47d9cdc283c7",
+          "Alias": "pageSize",
+          "DataType": "umb://data-type/2e6d3631066e44b8aec496f09099b2b5",
+          "ValueType": "System.Int32",
+          "Description": "Choose the amount of articles to display per page",
+          "Mandatory": true,
+          "MandatoryMessage": "You need to enter the page size",
+          "Name": "Page Size",
+          "SortOrder": 10
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/60085a63b77b45099df4bcb75db2755f",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/2e6d3631066e44b8aec496f09099b2b5",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/fd1e0da556064862b6795d0cf3a52a59",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

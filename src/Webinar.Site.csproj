@@ -27,6 +27,23 @@
     <PackageReference Include="Umbraco.Deploy.Automate" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Forms" />
+    <PackageReference Include="Umbraco.Forms.Automate" />
+    <PackageReference Include="Umbraco.Engage" />
+    <PackageReference Include="Umbraco.Engage.Automate" />
+    <PackageReference Include="Umbraco.Commerce" />
+    <PackageReference Include="Umbraco.Commerce.Automate" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.AI" />
+    <PackageReference Include="Umbraco.AI.Agent" />
+    <PackageReference Include="Umbraco.AI.Anthropic" />
+    <PackageReference Include="Umbraco.AI.Automate" />
+    <PackageReference Include="Umbraco.AI.Deploy" />
+  </ItemGroup>
+
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>

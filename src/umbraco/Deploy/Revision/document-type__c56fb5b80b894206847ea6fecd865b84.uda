@@ -1,0 +1,36 @@
+{
+  "Name": "Latest Articles Row Settings",
+  "Alias": "latestArticlesRowSettings",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-settings color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/1d661329af294a1b8745677e64006754",
+  "CompositionContentTypes": [
+    "umb://document-type/02180d871eea45d993a61e38f2ee0165",
+    "umb://document-type/2e1a4fd4b695403386261a45b54e04cb"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/c56fb5b80b894206847ea6fecd865b84",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/1d661329af294a1b8745677e64006754",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/02180d871eea45d993a61e38f2ee0165",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/2e1a4fd4b695403386261a45b54e04cb",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

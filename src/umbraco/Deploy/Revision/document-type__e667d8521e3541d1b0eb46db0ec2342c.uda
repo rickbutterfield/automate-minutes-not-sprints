@@ -1,0 +1,59 @@
+{
+  "Name": "Contact",
+  "Alias": "contact",
+  "DefaultTemplate": "umb://template/e265abdbce7c4646b472ca922b313b18",
+  "AllowedTemplates": [
+    "umb://template/e265abdbce7c4646b472ca922b313b18"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-message color-blue",
+  "Thumbnail": "folder.png",
+  "Description": "A dedicated contact page where you have a contact form",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+  "CompositionContentTypes": [
+    "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+    "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+    "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+    "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+    "umb://document-type/f1052d4868f1438c812c9e053abeca99"
+  ],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/e667d8521e3541d1b0eb46db0ec2342c",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type-container/d458b45bb73f40c2a52004e7a1bccfa1",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7cebdc47a96549ecab42bc887d6b1119",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/9090575e290c458591a4b72ec30ff41f",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/ce869f5cd4104a3e85729593e49101c6",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/d690c8cb262243b98cf9fdca7811ee4d",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/f1052d4868f1438c812c9e053abeca99",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://template/e265abdbce7c4646b472ca922b313b18",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

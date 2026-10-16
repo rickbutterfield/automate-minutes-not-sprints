@@ -1,0 +1,56 @@
+{
+  "Name": "Video Row",
+  "Alias": "videoRow",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-video color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "6afb8a94-ba48-4c15-9d76-08ffe48e0950",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "db26c4d6-d620-42db-811f-3ec6fd2a9cd0",
+          "Alias": "videoUrl",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "Add the YouTube Url in here",
+          "Name": "Video Url",
+          "SortOrder": 10
+        },
+        {
+          "Key": "ebaacaf6-d137-4575-9c8a-c7454922477b",
+          "Alias": "caption",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "Add a caption to display under the video if you would like",
+          "Name": "Caption",
+          "SortOrder": 20
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/f43c8349080144b891139f7c62cd44fe",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

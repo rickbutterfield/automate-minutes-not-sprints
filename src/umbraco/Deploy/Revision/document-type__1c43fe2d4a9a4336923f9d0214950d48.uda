@@ -1,0 +1,47 @@
+{
+  "Name": "Image Carousel Row",
+  "Alias": "imageCarouselRow",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-pictures-alt color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "e3aeb359-a8bf-48d8-b650-bae5e40840ea",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "3d9ba030-db57-4cb0-9530-c08753a70e4b",
+          "Alias": "images",
+          "DataType": "umb://data-type/0e63d883b62b479988c3157f82e83ecc",
+          "ValueType": "System.Collections.Generic.IEnumerable\u003CUmbraco.Cms.Core.Models.MediaWithCrops\u003E",
+          "Description": "Choose the images for the carousel row",
+          "Name": "Images",
+          "SortOrder": 1
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/1c43fe2d4a9a4336923f9d0214950d48",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0e63d883b62b479988c3157f82e83ecc",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "Master",
+  "Alias": "master",
+  "File": "umb://template-file/master.cshtml",
+  "Udi": "umb://template/ee0257b99fb04e90bc99f8ab75c6100e",
+  "Dependencies": [
+    {
+      "Udi": "umb://template-file/master.cshtml",
+      "Ordering": true,
+      "Mode": "Exist"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.TemplateArtifact",
+  "__version": "18.1.1"
+}

@@ -1,0 +1,29 @@
+{
+  "Name": "[BlockList] Icon List",
+  "EditorAlias": "Umbraco.BlockList",
+  "EditorUiAlias": "Umb.PropertyEditorUi.BlockList",
+  "Configuration": {
+    "blocks": [
+      {
+        "contentElementTypeKey": "17db13ba-bbd9-4a44-b28f-986301156754",
+        "settingsElementTypeKey": "84e89805-5a53-4dcf-930d-fd87c48572dd"
+      }
+    ],
+    "useSingleBlockMode": false,
+    "validationLimit": {
+      "min": null,
+      "max": null
+    }
+  },
+  "Udi": "umb://data-type/f8d7b987745c471f8f34a47f00838f06",
+  "Dependencies": [
+    {
+      "Udi": "umb://document-type/17db13babbd94a44b28f986301156754"
+    },
+    {
+      "Udi": "umb://document-type/84e898055a534dcf930dfd87c48572dd"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DataTypeArtifact",
+  "__version": "18.1.1"
+}

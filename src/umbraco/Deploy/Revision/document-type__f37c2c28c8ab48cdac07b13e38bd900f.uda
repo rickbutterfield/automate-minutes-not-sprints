@@ -1,0 +1,59 @@
+{
+  "Name": "Code Snippet Row",
+  "Alias": "codeSnippetRow",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-code color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "98438e4b-df34-4d4a-b97e-2e3144a10ebb",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "2c592a4f-6066-4c7c-b560-9a2c602dbcbf",
+          "Alias": "title",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "Enter a name for this code snippet",
+          "Name": "Title"
+        },
+        {
+          "Key": "d7546066-4194-4576-b75d-11b8dab1e860",
+          "Alias": "code",
+          "DataType": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+          "ValueType": "System.String",
+          "Name": "Code",
+          "SortOrder": 1,
+          "LabelOnTop": true
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/f37c2c28c8ab48cdac07b13e38bd900f",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

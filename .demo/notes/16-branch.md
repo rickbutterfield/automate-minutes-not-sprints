@@ -1,6 +1,6 @@
 "And this —"
 
-*(switch to the live canvas in the browser)*
+*(MANUALLY: switch to the live automation canvas in the browser — show the If/Parallel branch)*
 
 "— this is where the code stops.
 If, then Parallel: create the booking with the supplier and tell sales in Slack at the same time, on the true branch — or just tell sales to follow up by hand, on the false branch.

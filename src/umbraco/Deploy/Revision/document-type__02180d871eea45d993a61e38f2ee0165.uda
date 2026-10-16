@@ -1,0 +1,48 @@
+{
+  "Name": "Hide Property",
+  "Alias": "hideProperty",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-defrag color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/a62d220974b6431d83fda56534b11e11",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "9d91cc45-9418-4a55-8c49-5dcac48bfd95",
+      "Name": "Settings",
+      "SortOrder": 100,
+      "Type": 1,
+      "Alias": "settings",
+      "PropertyTypes": [
+        {
+          "Key": "4823f638-6872-4010-b4a2-85134a7011bf",
+          "Alias": "hide",
+          "DataType": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+          "ValueType": "System.Boolean",
+          "Description": "Set this to true if you want to hide this row from the front end of the site",
+          "Name": "Hide",
+          "SortOrder": 10
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/02180d871eea45d993a61e38f2ee0165",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/92897bc6a5f34ffeae27f2e7e33dda49",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/a62d220974b6431d83fda56534b11e11",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}

@@ -1,0 +1,60 @@
+{
+  "Name": "Image Row",
+  "Alias": "imageRow",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-picture color-indigo",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "IsElementType": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "e2af1253-9ef7-4516-93e9-ff7cae743585",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "a7f48594-814e-452a-92e4-57d1b8a6c4a8",
+          "Alias": "image",
+          "DataType": "umb://data-type/ad9f0cf2bda245d59ea1a63cfc873fd3",
+          "ValueType": "Umbraco.Cms.Core.Models.MediaWithCrops",
+          "Description": "Add the image for this row",
+          "Name": "Image",
+          "SortOrder": 10
+        },
+        {
+          "Key": "ff44ccd9-2516-4b1e-be06-c7238743c59e",
+          "Alias": "caption",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "ValueType": "System.String",
+          "Description": "Enter a caption for the image",
+          "Name": "Caption",
+          "SortOrder": 20
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/e0df4794063a44508f4fc615a5d902e2",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://data-type/ad9f0cf2bda245d59ea1a63cfc873fd3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/75517739b66745cf9e2175afcb06d8d2",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "18.1.1"
+}
