@@ -78,27 +78,6 @@ directly from the browser address bar:
 https://localhost:44390/trip-enquiry?email=you@example.com&company=Acme%20Ltd
 ```
 
-### Local builds
-
-Three products run from local, unreleased builds in `local-packages/` (gitignored), set
-in `NuGet.config` and `Directory.Packages.props`:
-
-| Package | Built from | Shows |
-|---|---|---|
-| Umbraco.Automate, .Startup | PR #445 merged with 18.5.1: branch `local/pr-445-on-18.5.1` @ `185c39b` in Umbraco.Automate | Named outcome exits on steps |
-| Umbraco.Commerce.Automate | Uncommitted work on `feature/generate-discount-code-action` | Store and Currency pickers on Issue Gift Card; Generate Discount Code action |
-| Umbraco.AI, .Agent, .Automate, .Deploy, .TypeSafe | `v18/dev` @ `b534718` | Decisions API (Jev) actions, behind `Umbraco:AI:Experimental:Decision` |
-
-The Currency picker's editor isn't packaged yet, so a draft copy lives in
-`src/wwwroot/App_Plugins/UmbracoCommerceAutomate/`. Decisions need a TypeSafe AI
-connection (API key) and a Decision profile, set up in the backoffice.
-
-To go back to released packages, restore the version numbers in
-`Directory.Packages.props`, remove the `Umbraco.AI.TypeSafe` reference and the
-`local-packages` source, and restore the database from
-`backups/db-12-10-2026-before-local-builds/` (the local builds added database
-migrations that the released versions don't know about).
-
 ### Slack
 
 The demo automation includes two Slack Send Message steps. `src/appsettings.Local.json`
